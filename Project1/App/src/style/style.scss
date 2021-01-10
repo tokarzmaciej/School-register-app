@@ -1,0 +1,43 @@
+#container-home{
+    width: 1024px;
+    height: 1000px;
+    margin: auto;
+    border: 1px solid black;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); 
+}
+
+#container-students{
+    width: 1024px;
+    height: 1000px;
+    margin: auto;
+    border: 1px solid black;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); 
+}
+#container-subjects{
+    width: 1024px;
+    height: 1000px;
+    margin: auto;
+    border: 1px solid black;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); 
+}
+
+.menu{
+    grid-column: 1/2;
+    border: 1px solid red;
+    display: flex;
+    align-content: flex-start;
+    flex-direction: column;
+    background-color: lightseagreen;
+    div{
+        text-align: center;
+        margin-top: 10%;
+        .link{
+            text-decoration: none;
+            color: rgb(240, 246, 246);
+            font-size: x-large;
+        }
+    }
+}

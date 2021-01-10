@@ -1,23 +1,34 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './components/App';
+import { Route, BrowserRouter as Router, Switch } from 'react-router-dom';
 import thunk from 'redux-thunk'
 import { createStore, combineReducers, applyMiddleware } from 'redux'
 import { Provider } from 'react-redux'
+import Students from './components/Students';
+import Subjects from './components/Subjects';
+import Home from './components/Home';
+import './style/style.css'
 
 
-// const rootReducer = combineReducers({ })
-// const store = createStore()
+const rootReducer = combineReducers({})
+const store = createStore(rootReducer)
 const rootEl = document.getElementById('root')
 
 const render = () => ReactDOM.render(
-  // <Provider store={store}>
-  <App />
-  // </Provider>
+  <Provider store={store}>
+    <Router>
+      <Switch>
+        <Route exact path="/" component={Home} />
+        <Route exact path="/students" component={Students} />
+        <Route exact path="/subjects" component={Subjects} />
+      </Switch>
+    </Router>
+  </Provider>
+
   , rootEl
 )
 render()
-// store.subscribe(render)
+store.subscribe(render)
 
 
 

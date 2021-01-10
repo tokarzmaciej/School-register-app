@@ -1,0 +1,61 @@
+#container-home {
+  width: 1024px;
+  height: 1000px;
+  margin: auto;
+  border: 1px solid black;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[5];
+      grid-template-columns: repeat(5, 1fr);
+}
+
+#container-students {
+  width: 1024px;
+  height: 1000px;
+  margin: auto;
+  border: 1px solid black;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[5];
+      grid-template-columns: repeat(5, 1fr);
+}
+
+#container-subjects {
+  width: 1024px;
+  height: 1000px;
+  margin: auto;
+  border: 1px solid black;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[5];
+      grid-template-columns: repeat(5, 1fr);
+}
+
+.menu {
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 1;
+  grid-column: 1/2;
+  border: 1px solid red;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-line-pack: start;
+      align-content: flex-start;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  background-color: lightseagreen;
+}
+
+.menu div {
+  text-align: center;
+  margin-top: 10%;
+}
+
+.menu div .link {
+  text-decoration: none;
+  color: #f0f6f6;
+  font-size: x-large;
+}
+/*# sourceMappingURL=style.css.map */
