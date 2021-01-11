@@ -1,12 +1,52 @@
 #container-home {
   width: 1024px;
-  height: 1000px;
   margin: auto;
-  border: 1px solid black;
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: (1fr)[5];
-      grid-template-columns: repeat(5, 1fr);
+  -ms-grid-columns: (1fr)[4];
+      grid-template-columns: repeat(4, 1fr);
+  background-color: #f3f2f2;
+}
+
+#container-home .actions {
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 3;
+  grid-column: 2/5;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: auto;
+}
+
+#container-home .actions h2 {
+  color: #161111;
+  font-size: xx-large;
+  text-align: center;
+  font-family: sans-serif;
+}
+
+#container-home .actions .action p {
+  font-size: 22px;
+  color: #1f1e1e;
+  padding-bottom: 3%;
+}
+
+#container-home .actions .action .content {
+  border-bottom: 1px solid gray;
+}
+
+#container-home .actions .action .date {
+  font-size: 17px;
+  text-align: right;
 }
 
 #container-students {
@@ -16,8 +56,8 @@
   border: 1px solid black;
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: (1fr)[5];
-      grid-template-columns: repeat(5, 1fr);
+  -ms-grid-columns: (1fr)[4];
+      grid-template-columns: repeat(4, 1fr);
 }
 
 #container-subjects {
@@ -27,15 +67,14 @@
   border: 1px solid black;
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: (1fr)[5];
-      grid-template-columns: repeat(5, 1fr);
+  -ms-grid-columns: (1fr)[4];
+      grid-template-columns: repeat(4, 1fr);
 }
 
 .menu {
   -ms-grid-column: 1;
   -ms-grid-column-span: 1;
   grid-column: 1/2;
-  border: 1px solid red;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -51,11 +90,16 @@
 .menu div {
   text-align: center;
   margin-top: 10%;
+  font-family: sans-serif;
 }
 
 .menu div .link {
   text-decoration: none;
   color: #f0f6f6;
   font-size: x-large;
+}
+
+.menu div h1 {
+  color: #2c2121;
 }
 /*# sourceMappingURL=style.css.map */

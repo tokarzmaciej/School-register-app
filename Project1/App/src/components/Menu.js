@@ -5,7 +5,7 @@ function Menu() {
     return (
         <div className="menu">
             <div className="header">
-                <h2>E-CLASS</h2>
+                <h1>E-CLASS</h1>
             </div>
             <div>
                 <Link to={`/`} className="link">Home</Link>
@@ -16,7 +16,6 @@ function Menu() {
             <div>
                 <Link to={`/subjects`} className="link">Subjects</Link>
             </div>
-
         </div>
     );
 }
