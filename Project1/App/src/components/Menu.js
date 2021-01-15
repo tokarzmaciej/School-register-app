@@ -5,16 +5,16 @@ function Menu() {
     return (
         <div className="menu">
             <div className="header">
-                <h1>E-CLASS</h1>
+                <h1 className="title has-text-black-ter is-2">E-CLASS</h1>
             </div>
             <div>
-                <Link to={`/`} className="link">Home</Link>
+                <Link to={`/`} className="title has-text-white-bis">Home</Link>
             </div>
             <div>
-                <Link to={`/students`} className="link" >Students</Link>
+                <Link to={`/students`} className="title has-text-white-bis">Students</Link>
             </div>
             <div>
-                <Link to={`/subjects`} className="link">Subjects</Link>
+                <Link to={`/subjects`} className="title has-text-white-bis">Subjects</Link>
             </div>
         </div>
     );

@@ -40,12 +40,12 @@ router.delete('/:idStudent', async (req, res) => {
     const deleteSubjects = await Subject.deleteMany({ _id: { '$in': idSubjects } })
 
     // usuwanie ocen tego studenta
-    const idMarks = await student[0].subjects
-      .map(subject => subject.marks.map(mark => mark._id))
-      .reduce((total, amount) => {
-        return [...total, ...amount]
-      }, []);
-    const deleteMarks = await Mark.deleteMany({ _id: { '$in': idMarks } })
+    // const idMarks = await student[0].subjects
+    //   .map(subject => subject.marks.map(mark => mark._id))
+    //   .reduce((total, amount) => {
+    //     return [...total, ...amount]
+    //   }, []);
+    // const deleteMarks = await Mark.deleteMany({ _id: { '$in': idMarks } })
 
     // usuwanie studenta
     const deletedStudent = await Student.findByIdAndDelete({ _id: idStudent });

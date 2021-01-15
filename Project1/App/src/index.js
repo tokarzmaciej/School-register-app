@@ -10,11 +10,15 @@ import Subjects from './components/Subjects';
 import Home from './components/Home';
 import './style/style.css';
 import actions from './reducers/actions';
+import students from './reducers/students';
+import Student from './components/Student';
 
 
 
 
-const rootReducer = combineReducers({ actions })
+
+
+const rootReducer = combineReducers({ actions, students })
 const store = createStore(rootReducer, applyMiddleware(thunk, createMiddleware()))
 const rootEl = document.getElementById('root')
 
@@ -25,6 +29,8 @@ const render = () => ReactDOM.render(
         <Route exact path="/" component={Home} />
         <Route exact path="/students" component={Students} />
         <Route exact path="/subjects" component={Subjects} />
+        <Route exact path="/students/:id" component={(routerProps) =>
+          <Student id={routerProps.match.params.id} />} />
       </Switch>
     </Router>
   </Provider>

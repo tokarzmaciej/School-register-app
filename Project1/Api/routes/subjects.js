@@ -33,8 +33,8 @@ router.delete('/:idSubject', async (req, res) => {
     const deleteSubject = await Subject.findByIdAndDelete(idSubject)
 
     // usuwanie ocen z przedmiotu
-    const idMarks = await deleteSubject.marks
-    const deleteMarks = await Mark.deleteMany({ _id: { '$in': idMarks } })
+    // const idMarks = await deleteSubject.marks
+    // const deleteMarks = await Mark.deleteMany({ _id: { '$in': idMarks } })
 
     // usuwanie przedmiotu u studenta
     const deleteSubjectForStudent = await Student.findByIdAndUpdate(idStudent,

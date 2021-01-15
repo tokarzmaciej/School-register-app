@@ -10,11 +10,11 @@ const Actions = ({ fetchActions, last20Actions }) => {
 
     return (
         <div className="actions">
-            <h2>Actions</h2>
+            <h2 className="title has-text-black-ter is-2">ACTIONS</h2>
             {last20Actions.map(action =>
                 <div key={action._id} className="action">
-                    <p className="content">{action.action}</p>
-                    <p className="date">{action.date.slice(0, 10)}</p>
+                    <p className="is-large is-size-5 has-text-link-dark">{action.action}</p>
+                    <p className="is-small">{action.date.slice(0, 10)}</p>
                 </div>
             )}
 
