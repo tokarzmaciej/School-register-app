@@ -1,0 +1,3 @@
+export const SUBJECT_POST_REQUEST = '@@subject/SUBJECT_POST_REQUEST'
+export const SUBJECT_POST_SUCCESS = '@@subject/SUBJECT_POST_SUCCESS'
+export const SUBJECT_POST_FAILURE = '@@subject/SUBJECT_POST_FAILURE'

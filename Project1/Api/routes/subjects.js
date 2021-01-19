@@ -10,13 +10,12 @@ const Mark = require('../models/Mark');
 router.post('/', async (req, res) => {
   try {
     const id = req.params.idStudent
-
-    const newSubject = await Subject.create({ ...req.body, isStudent: id })
+    const newSubject = await Subject.create({ ...req.body, idStudent: id })
 
     const addSubjectForStudent = await Student.findByIdAndUpdate(id,
       { '$push': { 'subjects': newSubject._id } },
       { 'new': true })
-    res.send({ newSubjects: newSubject })
+    res.send({ newSubject: newSubject })
 
   } catch (error) {
     res.send("error" + error);

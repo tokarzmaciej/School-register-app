@@ -7,6 +7,7 @@ import { getStudents, postStudent, deleteStudent } from '../operations/students'
 import 'bulma/css/bulma.css'
 
 function Students({ allStudents, fetchStudents, createStudent, delStudent }) {
+
     useEffect(() => fetchStudents(), [fetchStudents])
 
     const [value, setValue] = useState("")
@@ -32,15 +33,9 @@ function Students({ allStudents, fetchStudents, createStudent, delStudent }) {
             const name = student.name
             const surname = student.surname
             const nameAndSurname = name + " " + surname
-            return name.toUpperCase().startsWith(value) ||
-                name.toLowerCase().startsWith(value) ||
-                name.startsWith(value) ||
-                surname.toUpperCase().startsWith(value) ||
-                surname.toLowerCase().startsWith(value) ||
-                surname.startsWith(value) ||
-                nameAndSurname.toUpperCase().startsWith(value) ||
-                nameAndSurname.toLowerCase().startsWith(value) ||
-                nameAndSurname.startsWith(value)
+            return name.toUpperCase().startsWith(value.toUpperCase()) ||
+                surname.toUpperCase().startsWith(value.toUpperCase()) ||
+                nameAndSurname.toUpperCase().startsWith(value.toUpperCase())
         })
     }
 
@@ -83,7 +78,9 @@ function Students({ allStudents, fetchStudents, createStudent, delStudent }) {
 
             <div className="students">
                 <div className="filter-students">
-                    <input className="input is-rounded is-size-6" onChange={(event) => setValue(event.target.value)}></input>
+                    <input className="input is-rounded is-size-6"
+                        onChange={(event) => setValue(event.target.value)}>
+                    </input>
                     <div className="select is-rounded">
                         <select onChange={(event) => setGender(event.target.value)}>
                             <option></option>
@@ -148,6 +145,7 @@ function Students({ allStudents, fetchStudents, createStudent, delStudent }) {
                                 <Link to={`/student/${student._id}`} className="title has-text-link-dark">
                                     {student.name + " " + student.surname}
                                 </Link>
+                                <p className="title is-size-6"> class: {student.class}</p>
                                 <p className="title is-size-6"> email: {student.email}</p>
                             </div>
                         </div>

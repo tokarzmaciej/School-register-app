@@ -6,6 +6,7 @@ const studentSchema = new Schema({
     surname: String,
     email: String,
     gender: String,
+    class: String,
     subjects: [{ type: Schema.Types.ObjectId, ref: "Subject" }]
 });
 

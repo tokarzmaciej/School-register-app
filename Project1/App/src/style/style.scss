@@ -91,12 +91,62 @@
 }
 #container-subjects{
     width: 1024px;
-    height: 1000px;
     margin: auto;
     display: grid;
-    grid-template-columns: repeat(4, 1fr); 
-    background-color: rgb(243, 242, 242);
-
+    grid-template-columns: repeat(7, 1fr); 
+    background-color: hsl(0, 0%, 99%);
+    .subjects{
+        grid-column: 3/8;
+        .view{
+            display: flex;
+            margin: 8%;
+            flex-direction: column;
+            div{
+                p{
+                    margin-top:  5%;
+                }
+            }
+        }
+        details{
+            margin: 5% 20% 5% 20%;
+            .create-subjects{
+                margin: 5% 20% 5% 20%;
+                .select{
+                    width: 100%;
+                    margin-bottom: 10%;
+                    select{
+                        width: 92%;
+                    }
+                }
+                .form{
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: center; 
+                    
+                }
+                .student-checkbox{
+                    width: 110%;
+                    display: grid;
+                    grid-template-columns: repeat(2,1fr);
+                    margin: 5%;
+                    margin-left: 10%;
+                }
+                .batton{
+                    display: flex;
+                    justify-content: center;
+                    button{
+                        margin-left: 2%;
+                    }    
+                }
+                input{
+                    margin: 1%;
+                }
+                
+            }   
+        }
+        
+    }
+    
 }
 
 .menu{

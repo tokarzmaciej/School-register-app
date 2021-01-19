@@ -141,13 +141,90 @@
 
 #container-subjects {
   width: 1024px;
-  height: 1000px;
   margin: auto;
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: (1fr)[4];
-      grid-template-columns: repeat(4, 1fr);
-  background-color: #f3f2f2;
+  -ms-grid-columns: (1fr)[7];
+      grid-template-columns: repeat(7, 1fr);
+  background-color: #fcfcfc;
+}
+
+#container-subjects .subjects {
+  -ms-grid-column: 3;
+  -ms-grid-column-span: 5;
+  grid-column: 3/8;
+}
+
+#container-subjects .subjects .view {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 8%;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+#container-subjects .subjects .view div p {
+  margin-top: 5%;
+}
+
+#container-subjects .subjects details {
+  margin: 5% 20% 5% 20%;
+}
+
+#container-subjects .subjects details .create-subjects {
+  margin: 5% 20% 5% 20%;
+}
+
+#container-subjects .subjects details .create-subjects .select {
+  width: 100%;
+  margin-bottom: 10%;
+}
+
+#container-subjects .subjects details .create-subjects .select select {
+  width: 92%;
+}
+
+#container-subjects .subjects details .create-subjects .form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+#container-subjects .subjects details .create-subjects .student-checkbox {
+  width: 110%;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[2];
+      grid-template-columns: repeat(2, 1fr);
+  margin: 5%;
+  margin-left: 10%;
+}
+
+#container-subjects .subjects details .create-subjects .batton {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+#container-subjects .subjects details .create-subjects .batton button {
+  margin-left: 2%;
+}
+
+#container-subjects .subjects details .create-subjects input {
+  margin: 1%;
 }
 
 .menu {
