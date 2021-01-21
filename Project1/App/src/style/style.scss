@@ -1,5 +1,6 @@
 #container-home{
     width: 1024px;
+    height: 1000px;
     margin: auto;
     display: grid;
     grid-template-columns: repeat(7, 1fr);
@@ -8,8 +9,6 @@
         grid-column: 3/8;
         display: flex;
         flex-direction: column;
-        align-content: center;
-        justify-content: center;
         margin: auto;
         h2{
                 text-align: center;
@@ -101,49 +100,55 @@
             display: flex;
             margin: 8%;
             flex-direction: column;
-            div{
-                p{
-                    margin-top:  5%;
-                }
+            .details-subject-edit{
+                margin-left:5%;
             }
         }
-        details{
-            margin: 5% 20% 5% 20%;
-            .create-subjects{
-                margin: 5% 20% 5% 20%;
-                .select{
-                    width: 100%;
-                    margin-bottom: 10%;
-                    select{
-                        width: 92%;
+    
+        .components-subject{
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+
+            details{
+                margin: 5% 15% 5% 15%;
+                .create{
+                    margin: 5% 20% 5% 20%;
+                    .select{
+                        width: 100%;
+                        margin-bottom:15%;
+                        select{
+                            width: 92%;
+                        }
                     }
-                }
-                .form{
-                    display: flex;
-                    flex-direction: row;
-                    justify-content: center; 
+                    .form{
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: center; 
+                        
+                    }
+                    .student-checkbox{
+                        width: 110%;
+                        display: grid;
+                        grid-template-columns: repeat(2,1fr);
+                        margin: 5%;
+                        margin-left: 10%;
+                    }
+                    .batton{
+                        display: flex;
+                        justify-content: center;
+                        margin-left: 5%;
+                        button{
+                            margin-left: 5%;
+                        }    
+                    }
+                    input{
+                        margin-top: 10%;
+                    }
                     
-                }
-                .student-checkbox{
-                    width: 110%;
-                    display: grid;
-                    grid-template-columns: repeat(2,1fr);
-                    margin: 5%;
-                    margin-left: 10%;
-                }
-                .batton{
-                    display: flex;
-                    justify-content: center;
-                    button{
-                        margin-left: 2%;
-                    }    
-                }
-                input{
-                    margin: 1%;
-                }
-                
-            }   
+                }   
+            }
         }
+        
         
     }
     

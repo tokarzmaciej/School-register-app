@@ -1,95 +1,65 @@
 import React, { useEffect, useState } from 'react';
-import { Formik, Field, Form, ErrorMessage } from 'formik';
-import { Link } from 'react-router-dom';
 import { connect } from "react-redux";
 import Menu from './Menu';
 import { getStudents } from '../operations/students';
-import { postSubject } from '../operations/subjects';
-import 'bulma/css/bulma.css'
+import 'bulma/css/bulma.css';
+import CreateSubject from './CreateSubject';
+import { deleteSubject, patchSubject } from '../operations/subjects';
+import CreateMark from './CreateMark';
 
-function Subjects({ allStudents, fetchStudents, createSubject }) {
+function Subjects({ allStudents, fetchStudents, delSubject, updateSubject }) {
 
     useEffect(() => fetchStudents(), [fetchStudents])
-    console.log(allStudents);
-    const [nameClass, setNameClass] = useState("")
-
-    const handleSubmit = (values) => {
-        const filterByStatus = Object.keys(values).filter(student => values[student] === true)
-
-        allStudents.filter(student => filterByStatus.includes(student.surname)).map(student => createSubject({ name: values.name }, student["_id"]))
-    }
-    const validate = ({ name }) => {
-        const errors = {};
-        if (name.length < 3) {
-            errors.name = 'Bad length';
-        }
-        return errors
-    };
-    const studentsWithStatus = allStudents.filter(student => student.class === nameClass).reduce((total, amount) => {
-        return { [amount.surname]: false, ...total }
-    }, {})
-
-    const studentToCheck = Object.keys(studentsWithStatus)
-        .map((student, index) =>
-            <div key={index}>
-                <Field type="checkbox" name={student} />
-                <label className="is-size-5 has-text-black-bis" >{student}</label>
-            </div>
-        )
-    const className = allStudents.reduce((total, amount) => {
-        return !total.includes(amount.class) ? [...total, amount.class] : total
-    }, [])
+    const [editSubject, setEditSubject] = useState("")
     return (
         <div id="container-subjects">
             <Menu></Menu>
             <div className="subjects">
-
-                <details className="is-size-4 has-text-danger-dark">
-                    <summary>Create subject</summary>
-                    <div className="create-subjects">
-                        <div className="select is-rounded is-size-6">
-                            <select onChange={(event) => setNameClass(event.target.value)}>
-                                <option>class name</option>
-                                {className.map((name, index) => <option key={index}>{name}</option>)}
-                            </select>
-                        </div>
-                        <Formik
-                            initialValues={{
-                                ...studentsWithStatus,
-                                name: "",
-                            }}
-                            onSubmit={(values) => {
-                                handleSubmit(values)
-                            }}
-                            validate={validate}>
-                            {({ handleSubmit, resetForm, initialValues }) => (
-                                <Form onSubmit={handleSubmit}>
-                                    <Field type="text" name="name" placeholder="name subject" className="input is-rounded is-size-6" />
-                                    <h5 className="valueText" ><ErrorMessage name="name" /></h5>
-                                    <div className="student-checkbox">
-                                        {studentToCheck}
-                                    </div>
-                                    <div className="batton">
-                                        <button type="submit" className="button is-success">Create</button>
-                                        <button type={"button"} onClick={() => {
-                                            if (window.confirm('Are you sure you want to reset?')) {
-                                                resetForm(initialValues)
-                                            }
-                                        }} className="button is-danger">Reset</button>
-                                    </div>
-                                </Form>
-                            )}
-                        </Formik>
-                    </div>
-                </details>
+                <div className="components-subject">
+                    <CreateSubject></CreateSubject>
+                    <CreateMark></CreateMark>
+                </div>
                 <div className="view">
-                    {allStudents.map(student =>
+                    {allStudents && allStudents.map(student =>
                         <div key={student._id} className="box has-background-info-light is-size-4">
                             <div className="notification has-background-info-light">
-                                <Link to={`/student/${student._id}`} className="title has-text-link-dark">
+                                <h1 to={`/student/${student._id}`} className="title has-text-link-dark">
                                     {student.name + " " + student.surname}
-                                </Link>
-                                <p className="title is-size-6"> Subjects: {student.subjects.map(element => element.name)}</p>
+                                </h1>
+                                {student.subjects
+                                    .map((element, index) =>
+                                        <div className="block" key={index}>
+                                            <span className="tag has-background-info-light is-size-4">
+                                                <button className="delete has-background-danger mr-3" onClick={() => {
+                                                    if (window.confirm('Are you sure you want to delete subject?')) {
+                                                        delSubject(element.idStudent, element["_id"])
+                                                    }
+                                                }}>
+                                                </button>
+                                                {element.name}
+                                                <details className="details-subject-edit">
+                                                    <summary></summary>
+                                                    <div>
+                                                        <input className="input is-size-7"
+                                                            placeholder="new name"
+                                                            value={editSubject}
+                                                            onChange={(event) => setEditSubject(event.target.value)}>
+                                                        </input>
+                                                        <button className="button is-size-7"
+                                                            onClick={() => {
+                                                                if (window.confirm('Are you sure you want to edit subject?')) {
+                                                                    updateSubject({ name: editSubject }, element.idStudent, element["_id"])
+                                                                    setEditSubject("")
+                                                                }
+                                                            }}>OK
+                                                        </button>
+                                                    </div>
+                                                </details>
+
+                                            </span>
+
+                                        </div>
+                                    )}
                             </div>
                         </div>
                     )
@@ -111,8 +81,11 @@ const mapDispatchToProps = (dispatch) => {
         fetchStudents: () => {
             dispatch(getStudents());
         },
-        createSubject: (payload, idStudent) => {
-            dispatch(postSubject(payload, idStudent))
+        delSubject: (idStudent, idSubject) => {
+            dispatch(deleteSubject(idStudent, idSubject));
+        },
+        updateSubject: (payload, idStudent, idSubject) => {
+            dispatch(patchSubject(payload, idStudent, idSubject));
         }
     }
 }

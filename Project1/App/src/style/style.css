@@ -1,5 +1,6 @@
 #container-home {
   width: 1024px;
+  height: 1000px;
   margin: auto;
   display: -ms-grid;
   display: grid;
@@ -19,11 +20,6 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -ms-flex-line-pack: center;
-      align-content: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
   margin: auto;
 }
 
@@ -166,28 +162,35 @@
           flex-direction: column;
 }
 
-#container-subjects .subjects .view div p {
-  margin-top: 5%;
+#container-subjects .subjects .view .details-subject-edit {
+  margin-left: 5%;
 }
 
-#container-subjects .subjects details {
+#container-subjects .subjects .components-subject {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[2];
+      grid-template-columns: repeat(2, 1fr);
+}
+
+#container-subjects .subjects .components-subject details {
+  margin: 5% 15% 5% 15%;
+}
+
+#container-subjects .subjects .components-subject details .create {
   margin: 5% 20% 5% 20%;
 }
 
-#container-subjects .subjects details .create-subjects {
-  margin: 5% 20% 5% 20%;
-}
-
-#container-subjects .subjects details .create-subjects .select {
+#container-subjects .subjects .components-subject details .create .select {
   width: 100%;
-  margin-bottom: 10%;
+  margin-bottom: 15%;
 }
 
-#container-subjects .subjects details .create-subjects .select select {
+#container-subjects .subjects .components-subject details .create .select select {
   width: 92%;
 }
 
-#container-subjects .subjects details .create-subjects .form {
+#container-subjects .subjects .components-subject details .create .form {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -200,7 +203,7 @@
           justify-content: center;
 }
 
-#container-subjects .subjects details .create-subjects .student-checkbox {
+#container-subjects .subjects .components-subject details .create .student-checkbox {
   width: 110%;
   display: -ms-grid;
   display: grid;
@@ -210,21 +213,22 @@
   margin-left: 10%;
 }
 
-#container-subjects .subjects details .create-subjects .batton {
+#container-subjects .subjects .components-subject details .create .batton {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  margin-left: 5%;
 }
 
-#container-subjects .subjects details .create-subjects .batton button {
-  margin-left: 2%;
+#container-subjects .subjects .components-subject details .create .batton button {
+  margin-left: 5%;
 }
 
-#container-subjects .subjects details .create-subjects input {
-  margin: 1%;
+#container-subjects .subjects .components-subject details .create input {
+  margin-top: 10%;
 }
 
 .menu {
