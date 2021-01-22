@@ -1,4 +1,4 @@
-import { STUDENTS_GET_SUCCESS, STUDENT_POST_SUCCESS, STUDENT_DELETE_SUCCESS } from "../types/students";
+import { STUDENTS_GET_SUCCESS, STUDENT_POST_SUCCESS, STUDENT_DELETE_SUCCESS, STUDENT_PATCH_SUCCESS } from "../types/students";
 import { SUBJECT_POST_SUCCESS, SUBJECT_DELETE_SUCCESS, SUBJECT_PATCH_SUCCESS } from '../types/subjects'
 import { MARK_POST_SUCCESS, MARK_DELETE_SUCCESS, MARK_PATCH_SUCCESS } from '../types/marks'
 
@@ -18,6 +18,10 @@ const students = (state = [], action) => {
         case STUDENT_DELETE_SUCCESS:
             return [
                 ...state.filter(student => student["_id"] !== action.payload.deletedStudent["_id"]),
+            ]
+        case STUDENT_PATCH_SUCCESS:
+            return [
+                ...state.map(student => student["_id"] === action.payload.updatedStudent["_id"] ? action.payload.updatedStudent : student),
             ]
         case SUBJECT_POST_SUCCESS:
             return [

@@ -15,9 +15,6 @@ import Student from './components/Student';
 
 
 
-
-
-
 const rootReducer = combineReducers({ actions, students })
 const store = createStore(rootReducer, applyMiddleware(thunk, createMiddleware()))
 const rootEl = document.getElementById('root')

@@ -35,8 +35,6 @@
     display: grid;
     grid-template-columns: repeat(7, 1fr); 
     background-color: hsl(0, 0%, 99%);
-
-
     .students{
         grid-column: 3/8;
         .view{
@@ -88,6 +86,46 @@
         
     }
 }
+#container-student{
+    width: 1024px;
+    min-height: 1000px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr); 
+    background-color: hsl(0, 0%, 99%);
+    .student{
+        grid-column: 3/8;
+        .view{
+            display: flex;
+            margin: 8%;
+            flex-direction: column;
+            .picture{
+               margin-left: 65% ;
+            }
+            .batton{
+                display: flex;
+                justify-content: center;
+                margin: 2%;
+                button{
+                    margin-left: 2%;
+                }    
+            }
+            select{
+                margin: 3%;
+            }
+            input{
+                margin: 1%;
+            }
+            .form{
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+    
+              
+            }
+        }
+    }
+}  
 #container-subjects{
     width: 1024px;
     margin: auto;
@@ -96,6 +134,12 @@
     background-color: hsl(0, 0%, 99%);
     .subjects{
         grid-column: 3/8;
+        .filter-students{
+            display: flex;
+            flex-direction: row;
+            justify-content: left;
+            margin: 5% 55% 5% 5%;
+        }
         .view{
             display: flex;
             margin: 8%;
@@ -153,6 +197,7 @@
     }
     
 }
+
 
 .menu{
     grid-column: 1/3;

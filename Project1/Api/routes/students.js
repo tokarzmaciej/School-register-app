@@ -59,8 +59,10 @@ router.patch('/:idStudent', async (req, res) => {
   try {
     const idStudent = req.params.idStudent;
     const data = req.body
-    const updateStudent = await Student.findByIdAndUpdate(idStudent, data, { new: true })
-    res.send({ updateStudent: updateStudent })
+    const updateStudent = await Student
+      .findByIdAndUpdate(idStudent, data, { new: true })
+      .populate({ path: 'subjects', populate: { path: "marks" } })
+    res.send({ updatedStudent: updateStudent })
   } catch (error) {
     res.send("error" + error);
   }

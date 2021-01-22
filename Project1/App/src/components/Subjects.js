@@ -7,6 +7,7 @@ import CreateSubject from './CreateSubject';
 import CreateMark from './CreateMark';
 import { deleteSubject, patchSubject } from '../operations/subjects';
 import { deleteMark, patchMark } from '../operations/marks';
+import { sortByname } from '../selectors/students'
 
 
 function Subjects({ allStudents, fetchStudents, delSubject, updateSubject, delMark, updateMark }) {
@@ -14,17 +15,25 @@ function Subjects({ allStudents, fetchStudents, delSubject, updateSubject, delMa
     useEffect(() => fetchStudents(), [fetchStudents])
     const [editSubject, setEditSubject] = useState("")
     const [editMark, setEditMark] = useState("")
+    const [value, setValue] = useState("")
 
     return (
         <div id="container-subjects">
             <Menu></Menu>
             <div className="subjects">
+                <div className="filter-students">
+                    <input className="input is-rounded is-size-5"
+                        placeholder={"find a student"}
+                        onChange={(event) => setValue(event.target.value)}>
+                    </input>
+                </div>
                 <div className="components-subject">
                     <CreateSubject></CreateSubject>
                     <CreateMark></CreateMark>
                 </div>
+
                 <div className="view">
-                    {allStudents && allStudents.map(student =>
+                    {sortByname(allStudents, value) && sortByname(allStudents, value).map(student =>
                         <div key={student._id} className="box has-background-info-light is-size-4">
                             <div className="notification has-background-info-light">
                                 <h1 to={`/student/${student._id}`} className="title has-text-link-dark">
@@ -63,7 +72,7 @@ function Subjects({ allStudents, fetchStudents, delSubject, updateSubject, delMa
                                             <ul className="ml-6">
                                                 {element.marks.map((mark, index) =>
                                                     <li className="block" key={index} >
-                                                        <span className="tag has-background-info-light is-size-4 has-text-black">
+                                                        <span className="tag has-background-info-light is-size-5 has-text-black">
                                                             <button className="delete has-background-danger-dark mr-3" onClick={() => {
                                                                 if (window.confirm('Are you sure you want to delete mark?')) {
                                                                     delMark(element.idStudent, element["_id"], mark["_id"])

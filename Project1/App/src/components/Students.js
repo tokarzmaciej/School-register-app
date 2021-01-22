@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { connect } from "react-redux";
 import Menu from './Menu';
 import { getStudents, postStudent, deleteStudent } from '../operations/students'
-import 'bulma/css/bulma.css'
+import { sortByname } from '../selectors/students'
 
 function Students({ allStudents, fetchStudents, createStudent, delStudent }) {
 
@@ -26,17 +26,6 @@ function Students({ allStudents, fetchStudents, createStudent, delStudent }) {
         } else {
             return students
         }
-    }
-
-    const sortByname = (students, value) => {
-        return students.filter(student => {
-            const name = student.name
-            const surname = student.surname
-            const nameAndSurname = name + " " + surname
-            return name.toUpperCase().startsWith(value.toUpperCase()) ||
-                surname.toUpperCase().startsWith(value.toUpperCase()) ||
-                nameAndSurname.toUpperCase().startsWith(value.toUpperCase())
-        })
     }
 
     const sortByGender = (students, gender) => {
@@ -98,7 +87,8 @@ function Students({ allStudents, fetchStudents, createStudent, delStudent }) {
                             name: "",
                             surname: "",
                             email: "",
-                            gender: ""
+                            gender: "",
+                            class: ""
                         }}
                         onSubmit={(values) => {
                             handleSubmit(values)
@@ -107,11 +97,12 @@ function Students({ allStudents, fetchStudents, createStudent, delStudent }) {
                         {({ handleSubmit, resetForm, initialValues }) => (
                             <Form onSubmit={handleSubmit}>
                                 <Field type="text" name="name" placeholder="name" className="input is-rounded is-size-6" />
-                                <h5 className="valueText" ><ErrorMessage name="name" /></h5>
+                                <h5 ><ErrorMessage name="name" /></h5>
                                 <Field type="text" name="surname" placeholder="surname" className="input is-rounded is-size-6" />
-                                <h5 className="valueDate"><ErrorMessage name="surname" /></h5>
+                                <h5 ><ErrorMessage name="surname" /></h5>
                                 <Field type="email" name="email" placeholder="email" className="input is-rounded is-size-6" />
-                                <h5 className="valueDate"><ErrorMessage name="email" /></h5>
+                                <h5 ><ErrorMessage name="email" /></h5>
+                                <Field type="text" name="class" placeholder="class" className="input is-rounded is-size-6" />
                                 <div className="select is-rounded">
                                     <Field as="select" name="gender">
                                         <option></option>
@@ -142,7 +133,8 @@ function Students({ allStudents, fetchStudents, createStudent, delStudent }) {
                                     }
                                 }}>
                                 </button>
-                                <Link to={`/student/${student._id}`} className="title has-text-link-dark">
+                                <Link to={`/students/${student._id}`}
+                                    className="title has-text-link-dark">
                                     {student.name + " " + student.surname}
                                 </Link>
                                 <p className="title is-size-6"> class: {student.class}</p>
