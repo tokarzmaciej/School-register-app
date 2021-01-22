@@ -2,9 +2,10 @@ import React, { useState } from 'react';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import { connect } from "react-redux";
 import { postSubject } from '../operations/subjects';
-import 'bulma/css/bulma.css'
+import 'bulma/css/bulma.css';
+import { postMark } from '../operations/marks';
 
-function CreateMark({ allStudents, createSubject }) {
+function CreateMark({ allStudents, createSubject, createMark }) {
 
     const [nameClass, setNameClass] = useState("")
     const [nameSubject, setNameSubject] = useState("")
@@ -15,10 +16,23 @@ function CreateMark({ allStudents, createSubject }) {
 
     const handleSubmit = (values) => {
 
-        if (window.confirm('Are you sure you want to create new subject?')) {
-            // allStudents
-            // .filter(student => filterByStatus(values).includes(student.surname))
-            // .map(student => createSubject({ name: values.name }, student["_id"]))
+        if (window.confirm('Are you sure you want to create new mark?')) {
+            const idSubjects = allStudents
+                .filter(student => filterByStatus(values).includes(student.surname))
+                .map(student => student.subjects.filter(subject => subject.name === nameSubject))
+                .map(subject => subject[0]["_id"])
+            const idStudents = allStudents
+                .filter(student => filterByStatus(values).includes(student.surname))
+                .map(student => student["_id"])
+
+            createMark({
+                mark: {
+                    name: values.name,
+                    grade: parseInt(values.grade)
+                },
+                idSubjects: idSubjects,
+                idStudents: idStudents
+            })
         }
 
     }
@@ -129,6 +143,9 @@ const mapDispatchToProps = (dispatch) => {
     return {
         createSubject: (payload, idStudent) => {
             dispatch(postSubject(payload, idStudent))
+        },
+        createMark: (payload) => {
+            dispatch(postMark(payload))
         }
     }
 }

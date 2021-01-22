@@ -4,13 +4,17 @@ import Menu from './Menu';
 import { getStudents } from '../operations/students';
 import 'bulma/css/bulma.css';
 import CreateSubject from './CreateSubject';
-import { deleteSubject, patchSubject } from '../operations/subjects';
 import CreateMark from './CreateMark';
+import { deleteSubject, patchSubject } from '../operations/subjects';
+import { deleteMark, patchMark } from '../operations/marks';
 
-function Subjects({ allStudents, fetchStudents, delSubject, updateSubject }) {
+
+function Subjects({ allStudents, fetchStudents, delSubject, updateSubject, delMark, updateMark }) {
 
     useEffect(() => fetchStudents(), [fetchStudents])
     const [editSubject, setEditSubject] = useState("")
+    const [editMark, setEditMark] = useState("")
+
     return (
         <div id="container-subjects">
             <Menu></Menu>
@@ -26,10 +30,10 @@ function Subjects({ allStudents, fetchStudents, delSubject, updateSubject }) {
                                 <h1 to={`/student/${student._id}`} className="title has-text-link-dark">
                                     {student.name + " " + student.surname}
                                 </h1>
-                                {student.subjects
-                                    .map((element, index) =>
-                                        <div className="block" key={index}>
-                                            <span className="tag has-background-info-light is-size-4">
+                                <ul>
+                                    {student.subjects.map((element, index) =>
+                                        <li className="block" key={index}>
+                                            <span className="tag has-background-info-light is-size-4 has-text-black has-text-weight-bold">
                                                 <button className="delete has-background-danger mr-3" onClick={() => {
                                                     if (window.confirm('Are you sure you want to delete subject?')) {
                                                         delSubject(element.idStudent, element["_id"])
@@ -52,14 +56,45 @@ function Subjects({ allStudents, fetchStudents, delSubject, updateSubject }) {
                                                                     setEditSubject("")
                                                                 }
                                                             }}>OK
-                                                        </button>
+                                                            </button>
                                                     </div>
                                                 </details>
-
                                             </span>
-
-                                        </div>
+                                            <ul className="ml-6">
+                                                {element.marks.map((mark, index) =>
+                                                    <li className="block" key={index} >
+                                                        <span className="tag has-background-info-light is-size-4 has-text-black">
+                                                            <button className="delete has-background-danger-dark mr-3" onClick={() => {
+                                                                if (window.confirm('Are you sure you want to delete mark?')) {
+                                                                    delMark(element.idStudent, element["_id"], mark["_id"])
+                                                                }
+                                                            }}>
+                                                            </button>
+                                                            {mark.name}: {mark.grade}
+                                                            <details className="details-subject-edit">
+                                                                <summary></summary>
+                                                                <div>
+                                                                    <input className="input is-size-7"
+                                                                        placeholder="new name"
+                                                                        value={editMark}
+                                                                        onChange={(event) => setEditMark(event.target.value)}>
+                                                                    </input>
+                                                                    <button className="button is-size-7"
+                                                                        onClick={() => {
+                                                                            if (window.confirm('Are you sure you want to edit mark?')) {
+                                                                                updateMark({ name: editMark }, mark["_id"])
+                                                                                setEditMark("")
+                                                                            }
+                                                                        }}>OK
+                                                                        </button>
+                                                                </div>
+                                                            </details>
+                                                        </span>
+                                                    </li>)}
+                                            </ul>
+                                        </li>
                                     )}
+                                </ul>
                             </div>
                         </div>
                     )
@@ -86,8 +121,15 @@ const mapDispatchToProps = (dispatch) => {
         },
         updateSubject: (payload, idStudent, idSubject) => {
             dispatch(patchSubject(payload, idStudent, idSubject));
-        }
+        },
+        delMark: (idStudent, idSubject, idMark) => {
+            dispatch(deleteMark(idStudent, idSubject, idMark));
+        },
+        updateMark: (payload, idMark) => {
+            dispatch(patchMark(payload, idMark));
+        },
     }
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Subjects);
+

@@ -1,5 +1,7 @@
 import { STUDENTS_GET_SUCCESS, STUDENT_POST_SUCCESS, STUDENT_DELETE_SUCCESS } from "../types/students";
 import { SUBJECT_POST_SUCCESS, SUBJECT_DELETE_SUCCESS, SUBJECT_PATCH_SUCCESS } from '../types/subjects'
+import { MARK_POST_SUCCESS, MARK_DELETE_SUCCESS, MARK_PATCH_SUCCESS } from '../types/marks'
+
 
 
 const students = (state = [], action) => {
@@ -42,6 +44,46 @@ const students = (state = [], action) => {
                             .map(subject => subject["_id"] === action.payload.updateSubject["_id"] ?
                                 action.payload.updateSubject : subject)
                     } : student),
+            ]
+        case MARK_POST_SUCCESS:
+            return [
+                ...state.map(student => action.payload.idStudents.includes(student["_id"]) ?
+                    {
+                        ...student,
+                        subjects: student.subjects
+                            .map(subject => action.payload.idSubjects.includes(subject["_id"]) ?
+                                {
+                                    ...subject,
+                                    marks: [action.payload.newMark, ...subject.marks]
+                                } : subject)
+                    } : student),
+            ]
+
+        case MARK_DELETE_SUCCESS:
+            return [
+                ...state.map(student => action.payload.idStudent === student["_id"] ?
+                    {
+                        ...student,
+                        subjects: student.subjects
+                            .map(subject => action.payload.idSubject === subject["_id"] ?
+                                {
+                                    ...subject,
+                                    marks: subject.marks.filter(mark => mark["_id"] !== action.payload.idMark)
+                                } : subject)
+                    } : student),
+            ]
+        case MARK_PATCH_SUCCESS:
+            return [
+                ...state.map(student => ({
+                    ...student,
+                    subjects: student.subjects
+                        .map(subject => ({
+                            ...subject,
+                            marks: subject.marks
+                                .map(mark => mark["_id"] === action.payload.updatedMark["_id"] ?
+                                    action.payload.updatedMark : mark)
+                        }))
+                })),
             ]
         default:
             return state;

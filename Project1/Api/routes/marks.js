@@ -4,38 +4,28 @@ const Mark = require('../models/Mark');
 const Subject = require('../models/Subject');
 
 
+
 router.post('/createMark', async (req, res) => {
     try {
-        const newMark = await Mark.create({ ...req.body })
+        const idSubjects = req.body.idSubjects
+        const mark = req.body.mark
+
+        const newMark = await Mark.create(mark)
+
+        const addMarkToSubject = await Subject.updateMany({ _id: { '$in': idSubjects } },
+            { '$push': { 'marks': newMark["_id"] } },
+            { 'new': true })
 
         res.send({ newMark: newMark })
 
     } catch (error) {
         res.send("error" + error);
-    }
-});
-
-router.post('/:idStudent/subjects/:idSubject/:idMark', async (req, res) => {
-    try {
-        const idStudent = req.params.idStudent
-        const idSubject = req.params.idSubject
-        const idMark = req.params.idMark
-
-        // const newMark = await Mark.create({ ...req.body })
-
-        const addMarkToSubject = await Subject.findByIdAndUpdate(idSubject,
-            { '$push': { 'marks': idMark } },
-            { 'new': true })
-
-        res.send({ newMark: "Add mark" })
-
-    } catch (error) {
-        res.send("error" + error);
 
     }
 });
 
-router.delete('/subjects/:idSubject/:idMark', async (req, res) => {
+
+router.delete('/subjects/:idSubject/marks/:idMark', async (req, res) => {
     try {
         const idSubject = req.params.idSubject
         const idMark = req.params.idMark
@@ -44,7 +34,7 @@ router.delete('/subjects/:idSubject/:idMark', async (req, res) => {
             { '$pull': { 'marks': idMark } },
             { 'new': true })
 
-        res.send({ deleteMark: deleteMark })
+        res.send({ deletedMark: deleteMarkWithSubject })
 
     } catch (error) {
         res.send("error" + error);
@@ -52,19 +42,19 @@ router.delete('/subjects/:idSubject/:idMark', async (req, res) => {
     }
 });
 
-// router.patch('/marks/:idMark', async (req, res) => {
-//     try {
-//         const idMark = req.params.idMark;
-//         const data = req.body
+router.patch('/marks/:idMark', async (req, res) => {
+    try {
+        const idMark = req.params.idMark;
+        const data = req.body
 
-//         const updateSubject = await Mark.findByIdAndUpdate(idMark, data, { new: true })
+        const updateMark = await Mark.findByIdAndUpdate(idMark, data, { new: true })
 
-//         res.send({ updateSubject: updateSubject })
+        res.send({ updatedMark: updateMark })
 
-//     } catch (error) {
-//         res.send("error" + error);
-//     }
-// });
+    } catch (error) {
+        res.send("error" + error);
+    }
+});
 
 
 module.exports = router;
