@@ -3,7 +3,6 @@ const router = express.Router();
 const { Types } = require('mongoose');
 const Subject = require('../models/Subject');
 const Student = require('../models/Student');
-const Mark = require('../models/Mark');
 
 
 router.get('/', async (req, res) => {
@@ -16,7 +15,6 @@ router.get('/', async (req, res) => {
   } catch (error) {
     res.send("error" + error);
   }
-
 });
 
 router.post('/', async (req, res) => {
@@ -35,17 +33,10 @@ router.delete('/:idStudent', async (req, res) => {
   try {
     // usuwanie przedmiotów tego studenta
     const idStudent = req.params.idStudent;
-    const student = await Student.find(Types.ObjectId(idStudent)).populate({ path: 'subjects', populate: { path: "marks" } });
+    const student = await Student.find(Types.ObjectId(idStudent))
+      .populate({ path: 'subjects', populate: { path: "marks" } });
     const idSubjects = await student[0].subjects.map(subject => subject._id);
     const deleteSubjects = await Subject.deleteMany({ _id: { '$in': idSubjects } })
-
-    // usuwanie ocen tego studenta
-    // const idMarks = await student[0].subjects
-    //   .map(subject => subject.marks.map(mark => mark._id))
-    //   .reduce((total, amount) => {
-    //     return [...total, ...amount]
-    //   }, []);
-    // const deleteMarks = await Mark.deleteMany({ _id: { '$in': idMarks } })
 
     // usuwanie studenta
     const deletedStudent = await Student.findByIdAndDelete({ _id: idStudent });

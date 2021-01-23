@@ -8,12 +8,12 @@ import { postAction } from '../operations/actions';
 
 function CreateMark({ allStudents, createMark, createAction }) {
 
-    const [nameClass2, setNameClass2] = useState("")
-    const [nameSubject, setNameSubject] = useState("")
+    const [nameClass2, setNameClass2] = useState("");
+    const [nameSubject, setNameSubject] = useState("");
 
 
     const filterByStatus = (values) => Object.keys(values)
-        .filter(student => values[student] === true)
+        .filter(student => values[student] === true);
 
     const handleSubmit = (values) => {
 
@@ -37,9 +37,8 @@ function CreateMark({ allStudents, createMark, createAction }) {
             createAction({
                 action: `Create mark ${values.name}: ${values.grade}`
             })
-        }
-
-    }
+        };
+    };
 
     const validate = (values) => {
         const errors = {};
@@ -53,38 +52,36 @@ function CreateMark({ allStudents, createMark, createAction }) {
         if (!kindOfGrade.includes(values.grade)) {
             errors.grade = "Bad value grade"
         }
-
         return errors
     };
 
-    const studentsWithStatus = allStudents
+    const studentsWithStatus2 = allStudents
         .filter(student => student.class === nameClass2 &&
             student.subjects
                 .map(subject => subject.name)
                 .includes(nameSubject))
         .reduce((total, amount) => {
             return { [amount.surname]: false, ...total }
-        }, {})
+        }, {});
 
-    const studentCheckbox = Object.keys(studentsWithStatus)
+    const studentCheckbox2 = Object.keys(studentsWithStatus2)
         .map((student, index) =>
             <div key={index}>
                 <Field type="checkbox" name={student} />
                 <label className="is-size-7-mobile is-size-6-tablet has-text-black-bis" >{student}</label>
                 <h5 className="valueText is-size-7" ><ErrorMessage name={student} /></h5>
-            </div>
-        )
+            </div>);
 
-    const listClass = allStudents.reduce((total, amount) => {
+    const listClass2 = allStudents.reduce((total, amount) => {
         return !total.includes(amount.class) ? [...total, amount.class] : total
-    }, [])
+    }, []);
 
     const listSubjects = [...new Set(allStudents
         .filter(student => student.class === nameClass2)
         .map(student => student.subjects.map(subject => subject.name))
         .reduce((total, amount) => {
             return [...amount, ...total]
-        }, []))]
+        }, []))];
 
 
     return (
@@ -94,7 +91,7 @@ function CreateMark({ allStudents, createMark, createAction }) {
                 <div className="select is-rounded is-size-6">
                     <select onChange={(event) => setNameClass2(event.target.value)}>
                         <option>class</option>
-                        {listClass.map((name, index) => <option key={index}>{name}</option>)}
+                        {listClass2.map((name, index) => <option key={index}>{name}</option>)}
                     </select>
                 </div>
                 <div className="select is-rounded is-size-6">
@@ -105,7 +102,7 @@ function CreateMark({ allStudents, createMark, createAction }) {
                 </div>
                 <Formik
                     initialValues={{
-                        ...studentsWithStatus,
+                        ...studentsWithStatus2,
                         name: "",
                         grade: ""
                     }}
@@ -120,7 +117,7 @@ function CreateMark({ allStudents, createMark, createAction }) {
                             <Field type="text" name="grade" placeholder="value" className="input is-rounded is-size-6" />
                             <h5 className="valueText is-size-7" ><ErrorMessage name="grade" /></h5>
                             <div className="student-checkbox">
-                                {studentCheckbox}
+                                {studentCheckbox2}
                             </div>
                             <div className="batton">
                                 <button type="submit" className="button is-success is-size-5">Create</button>
@@ -136,12 +133,13 @@ function CreateMark({ allStudents, createMark, createAction }) {
             </div>
         </details>
     );
-}
+};
+
 const mapStateToProps = (state) => {
     return {
         allStudents: state.students
     }
-}
+};
 
 const mapDispatchToProps = (dispatch) => {
     return {
@@ -152,6 +150,6 @@ const mapDispatchToProps = (dispatch) => {
             dispatch(postAction(payload))
         }
     }
-}
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(CreateMark);

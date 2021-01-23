@@ -4,7 +4,6 @@ const Mark = require('../models/Mark');
 const Subject = require('../models/Subject');
 
 
-
 router.post('/createMark', async (req, res) => {
     try {
         const idSubjects = req.body.idSubjects
@@ -23,7 +22,6 @@ router.post('/createMark', async (req, res) => {
 
     }
 });
-
 
 router.delete('/subjects/:idSubject/marks/:idMark', async (req, res) => {
     try {
@@ -55,6 +53,5 @@ router.patch('/marks/:idMark', async (req, res) => {
         res.send("error" + error);
     }
 });
-
 
 module.exports = router;

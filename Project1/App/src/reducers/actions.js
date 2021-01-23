@@ -15,6 +15,6 @@ const actions = (state = [], action) => {
         default:
             return state;
     }
-}
+};
 
-export default actions
+export default actions;

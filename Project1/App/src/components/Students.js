@@ -3,22 +3,22 @@ import { Formik, Field, Form, ErrorMessage } from 'formik';
 import { Link } from 'react-router-dom';
 import { connect } from "react-redux";
 import Menu from './Menu';
-import { getStudents, postStudent, deleteStudent } from '../operations/students'
+import { getStudents, postStudent, deleteStudent } from '../operations/students';
 import { sortByname } from '../selectors/students';
 import { postAction } from '../operations/actions';
-import '../style/students.css'
+import '../style/students.css';
 
 function Students({ allStudents, fetchStudents, createStudent, delStudent, createAction }) {
 
-    useEffect(() => fetchStudents(), [fetchStudents])
+    useEffect(() => fetchStudents(), [fetchStudents]);
 
-    const [value, setValue] = useState("")
-    const [sort, setSort] = useState("")
-    const [gender, setGender] = useState("")
+    const [value, setValue] = useState("");
+    const [sort, setSort] = useState("");
+    const [gender, setGender] = useState("");
 
     const filter = (students, sort, gender, value) => {
         return alphabeticSort(sortByname(sortByGender(students, gender), value), sort)
-    }
+    };
 
     const alphabeticSort = (students, sort) => {
         if (sort === true) {
@@ -28,11 +28,11 @@ function Students({ allStudents, fetchStudents, createStudent, delStudent, creat
         } else {
             return students
         }
-    }
+    };
 
     const sortByGender = (students, gender) => {
         return students.filter(student => student.gender === gender || gender === "")
-    }
+    };
 
     const handleSubmit = (values) => {
         if (window.confirm('Are you sure you want to create new student?')) {
@@ -41,7 +41,7 @@ function Students({ allStudents, fetchStudents, createStudent, delStudent, creat
                 action: `The new student ${values.name} ${values.surname} has been added`
             })
         }
-    }
+    };
 
     const validate = ({ name, surname, email }) => {
         const errors = {};
@@ -152,17 +152,16 @@ function Students({ allStudents, fetchStudents, createStudent, delStudent, creat
                     )
                     }
                 </div>
-
             </div >
         </div >
     );
-}
+};
 
 const mapStateToProps = (state) => {
     return {
         allStudents: state.students
     }
-}
+};
 
 const mapDispatchToProps = (dispatch) => {
     return {
@@ -178,9 +177,8 @@ const mapDispatchToProps = (dispatch) => {
         createAction: (payload) => {
             dispatch(postAction(payload))
         }
-
     }
-}
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(Students);
 

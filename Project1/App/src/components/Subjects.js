@@ -9,25 +9,28 @@ import { deleteSubject, patchSubject } from '../operations/subjects';
 import { deleteMark, patchMark } from '../operations/marks';
 import { sortByname } from '../selectors/students';
 import { postAction } from '../operations/actions';
-
+import '../style/subjects.css';
 
 function Subjects({ allStudents, fetchStudents, delSubject, updateSubject, delMark, updateMark, createAction }) {
 
-    useEffect(() => fetchStudents(), [fetchStudents])
-    const [editSubject, setEditSubject] = useState("")
-    const [editMark, setEditMark] = useState("")
-    const [value, setValue] = useState("")
+    useEffect(() => fetchStudents(), [fetchStudents]);
+
+    const [editSubject, setEditSubject] = useState("");
+    const [editMark, setEditMark] = useState("");
+    const [value, setValue] = useState("");
 
     return (
         <div id="container-subjects">
             <Menu></Menu>
             <div className="subjects">
+
                 <div className="filter-students">
                     <input className="input is-rounded is-size-5"
                         placeholder={"find a student"}
                         onChange={(event) => setValue(event.target.value)}>
                     </input>
                 </div>
+
                 <div className="components-subject">
                     <CreateSubject></CreateSubject>
                     <CreateMark></CreateMark>
@@ -41,6 +44,7 @@ function Subjects({ allStudents, fetchStudents, delSubject, updateSubject, delMa
                                     {student.name + " " + student.surname}
                                 </h1>
                                 <ul>
+                                    {/* Subjects */}
                                     {student.subjects.map((element, index) =>
                                         <li className="block" key={index}>
                                             <span className="tag has-background-info-light  is-size-6-mobile is-size-4-tablet has-text-black has-text-weight-bold">
@@ -73,6 +77,8 @@ function Subjects({ allStudents, fetchStudents, delSubject, updateSubject, delMa
                                                     </div>
                                                 </details>
                                             </span>
+
+                                            {/* Marks */}
                                             <ul className="ml-6">
                                                 {element.marks.map((mark, index) =>
                                                     <li className="block" key={index} >
@@ -99,30 +105,27 @@ function Subjects({ allStudents, fetchStudents, delSubject, updateSubject, delMa
                                                                                 setEditMark("")
                                                                             }
                                                                         }}>OK
-                                                                        </button>
+                                                                    </button>
                                                                 </div>
                                                             </details>
                                                         </span>
                                                     </li>)}
                                             </ul>
-                                        </li>
-                                    )}
+                                        </li>)}
                                 </ul>
                             </div>
-                        </div>
-                    )
-                    }
+                        </div>)}
                 </div>
-
             </div >
         </div >
     );
-}
+};
+
 const mapStateToProps = (state) => {
     return {
         allStudents: state.students
     }
-}
+};
 
 const mapDispatchToProps = (dispatch) => {
     return {
@@ -145,7 +148,7 @@ const mapDispatchToProps = (dispatch) => {
             dispatch(postAction(payload))
         }
     }
-}
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(Subjects);
 

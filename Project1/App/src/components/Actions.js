@@ -5,7 +5,6 @@ import { getActions } from '../operations/actions';
 
 const Actions = ({ fetchActions, actions }) => {
 
-
     useEffect(() => fetchActions(), [fetchActions]);
 
     return (
@@ -17,15 +16,15 @@ const Actions = ({ fetchActions, actions }) => {
                     <p className="is-small is-size-6">{action.date.slice(0, 10)}</p>
                 </div>
             )}
-
         </div >
     );
-}
+};
+
 const mapStateToProps = (state) => {
     return {
         actions: last15Actions(state)
     }
-}
+};
 
 const mapDispatchToProps = (dispatch) => {
     return {
@@ -33,6 +32,6 @@ const mapDispatchToProps = (dispatch) => {
             dispatch(getActions());
         }
     }
-}
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(Actions);

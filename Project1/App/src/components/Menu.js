@@ -18,6 +18,6 @@ function Menu() {
             </div>
         </div>
     );
-}
+};
 
-export default Menu
+export default Menu;

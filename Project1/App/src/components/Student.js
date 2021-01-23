@@ -2,17 +2,18 @@ import React, { useState } from 'react';
 import { connect } from "react-redux";
 import Menu from './Menu';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
-import { patchStudent } from '../operations/students'
-import { averageFromSubject } from '../selectors/students'
+import { patchStudent } from '../operations/students';
+import { averageFromSubject } from '../selectors/students';
 import { postAction } from '../operations/actions';
-import '../style/student.css'
+import '../style/student.css';
 
 function Student({ id, allStudents, updateStudent, average, createAction }) {
 
-    const student = allStudents.filter(student => student["_id"] === id)[0]
-    const studentAverage = average.filter(student => student.id === id)[0]
+    const student = allStudents.filter(student => student["_id"] === id)[0];
+    const studentAverage = average.filter(student => student.id === id)[0];
+    const styleTitle = "title is-size-7-mobile is-size-5-tablet"
 
-    const [img, setImg] = useState("")
+    const [img, setImg] = useState("");
 
     const uploadImage = event => {
         let picture = event.target.files[0];
@@ -29,12 +30,14 @@ function Student({ id, allStudents, updateStudent, average, createAction }) {
                 <img src={img} alt="img" />
             </figure> :
             null
-    }
+    };
+
     const upload = () => {
         return img === "" ?
             <input type="file" onChange={(event) => uploadImage(event)} /> :
             null
-    }
+    };
+
     const handleSubmit = (values) => {
         const editValues = {}
         if (values.name !== student.name && values.name !== "") {
@@ -58,7 +61,8 @@ function Student({ id, allStudents, updateStudent, average, createAction }) {
                 action: `Edit student ${student.name} ${student.surname}`
             })
         }
-    }
+    };
+
     const validate = ({ name, surname, email }) => {
         const errors = {};
         if (name.length < 3 && name !== "") {
@@ -75,12 +79,13 @@ function Student({ id, allStudents, updateStudent, average, createAction }) {
         }
         return errors
     };
+
     return (
         <div id="container-student">
             <Menu></Menu>
             <div className="student">
-                <div className="view">
 
+                <div className="view">
                     <div key={student && student._id} className="box has-background-info-light is-size-4">
                         <div className="picture">
                             {picture()}
@@ -113,7 +118,6 @@ function Student({ id, allStudents, updateStudent, average, createAction }) {
                                                 <Field type="email" name="email" placeholder="email" className="input is-rounded is-size-6" />
                                                 <h5 className="title is-size-7"><ErrorMessage name="email" /></h5>
                                                 <Field type="text" name="class" placeholder="class" className="input is-rounded is-size-6" />
-
                                                 <div className="select is-rounded is-size-6">
                                                     <Field as="select" name="gender">
                                                         <option></option>
@@ -135,13 +139,17 @@ function Student({ id, allStudents, updateStudent, average, createAction }) {
                                 </details>
                             </div>
 
-                            <p className="title is-size-7-mobile is-size-5-tablet"> Class: {student && student.class}</p>
-                            <p className="title is-size-7-mobile is-size-5-tablet"> Email: {student && student.email}</p>
-                            <p className="title is-size-7-mobile is-size-5-tablet"> Gender: {student && student.gender}</p>
-                            <p className="title is-size-7-mobile is-size-5-tablet has-text-danger-dark"> Average: {studentAverage && studentAverage.average}</p>
+                            <p className={styleTitle}> Class: {student && student.class}</p>
+                            <p className={styleTitle}> Email: {student && student.email}</p>
+                            <p className={styleTitle}> Gender: {student && student.gender}</p>
+                            <p className={`${styleTitle} has-text-danger-dark`}>
+                                Average: {studentAverage && studentAverage.average}
+                            </p>
                             {studentAverage && studentAverage.subjects
                                 .map((subject, index) =>
-                                    <p key={index} className="title is-size-7-mobile is-size-5-tablet has-text-success-dark">{subject.name}: {subject.average}</p>
+                                    <p key={index} className={`${styleTitle} has-text-success-dark`}>
+                                        {subject.name}: {subject.average}
+                                    </p>
                                 )}
                         </div>
                     </div>
@@ -149,14 +157,14 @@ function Student({ id, allStudents, updateStudent, average, createAction }) {
             </div>
         </div >
     );
-}
+};
 
 const mapStateToProps = (state) => {
     return {
         allStudents: state.students,
         average: averageFromSubject(state)
     }
-}
+};
 
 const mapDispatchToProps = (dispatch) => {
     return {
@@ -167,7 +175,7 @@ const mapDispatchToProps = (dispatch) => {
             dispatch(postAction(payload))
         }
     }
-}
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(Student);
 

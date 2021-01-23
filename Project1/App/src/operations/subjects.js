@@ -5,7 +5,6 @@ import {
     SUBJECT_PATCH_REQUEST, SUBJECT_PATCH_SUCCESS, SUBJECT_PATCH_FAILURE
 
 } from "../types/subjects";
-import '../style/subjects.css'
 
 
 export const postSubject = (payload, idStudent) => ({
@@ -23,7 +22,6 @@ export const postSubject = (payload, idStudent) => ({
             SUBJECT_POST_FAILURE]
     }
 });
-
 
 export const deleteSubject = (idStudent, idSubject) => ({
     [RSAA]: {

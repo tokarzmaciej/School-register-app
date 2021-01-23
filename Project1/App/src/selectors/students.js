@@ -1,8 +1,6 @@
 import { createSelector } from 'reselect';
 
-
-
-const getStudentsSelector = state => state.students
+const getStudentsSelector = state => state.students;
 
 export const averageFromSubject = createSelector(
     getStudentsSelector,
@@ -28,7 +26,7 @@ export const averageFromSubject = createSelector(
                     return total + amount.average
                 }, 0) / student.subjects.length : 0
         }))
-)
+);
 
 export const sortByname = (students, value) => {
     return students.filter(student => {
@@ -39,4 +37,4 @@ export const sortByname = (students, value) => {
             surname.toUpperCase().startsWith(value.toUpperCase()) ||
             nameAndSurname.toUpperCase().startsWith(value.toUpperCase())
     })
-}
+};

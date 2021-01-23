@@ -1,10 +1,7 @@
 const express = require('express');
 const router = express.Router({ mergeParams: true });
-
 const Subject = require('../models/Subject');
 const Student = require('../models/Student');
-const Mark = require('../models/Mark');
-
 
 
 router.post('/', async (req, res) => {
@@ -30,10 +27,6 @@ router.delete('/:idSubject', async (req, res) => {
 
     // usuwanie przedmiotu
     const deleteSubject = await Subject.findByIdAndDelete(idSubject)
-
-    // usuwanie ocen z przedmiotu
-    // const idMarks = await deleteSubject.marks
-    // const deleteMarks = await Mark.deleteMany({ _id: { '$in': idMarks } })
 
     // usuwanie przedmiotu u studenta
     const deleteSubjectForStudent = await Student.findByIdAndUpdate(idStudent,
@@ -61,8 +54,6 @@ router.patch('/:idSubject', async (req, res) => {
     res.send("error" + error);
   }
 });
-
-
 
 
 module.exports = router;

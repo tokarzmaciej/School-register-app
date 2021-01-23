@@ -8,10 +8,10 @@ import { postAction } from '../operations/actions';
 
 function CreateSubjects({ allStudents, createSubject, createAction }) {
 
-    const [nameClass1, setNameClass1] = useState("")
+    const [nameClass1, setNameClass1] = useState("");
 
     const filterByStatus = (values) => Object.keys(values)
-        .filter(student => values[student] === true)
+        .filter(student => values[student] === true);
 
     const handleSubmit = (values) => {
 
@@ -23,9 +23,7 @@ function CreateSubjects({ allStudents, createSubject, createAction }) {
                 action: `Create new subject ${values.name}`
             })
         }
-
-    }
-
+    };
 
     const validate = (values) => {
         const errors = {};
@@ -44,28 +42,27 @@ function CreateSubjects({ allStudents, createSubject, createAction }) {
                 errors[checkRepeatSubject[0].surname] = `Student is already enrolled in this subject`
             }
         }
-
         return errors
     };
 
-    const studentsWithStatus = allStudents
+    const studentsWithStatus1 = allStudents
         .filter(student => student.class === nameClass1)
         .reduce((total, amount) => {
             return { [amount.surname]: false, ...total }
-        }, {})
+        }, {});
 
-    const studentCheckbox = Object.keys(studentsWithStatus)
+    const studentCheckbox1 = Object.keys(studentsWithStatus1)
         .map((student, index) =>
             <div key={index}>
                 <Field type="checkbox" name={student} />
                 <label className="is-size-7-mobile is-size-6-tablet has-text-black-bis" >{student}</label>
                 <h5 className="valueText is-size-7" ><ErrorMessage name={student} /></h5>
             </div>
-        )
+        );
 
-    const listClass = allStudents.reduce((total, amount) => {
+    const listClass1 = allStudents.reduce((total, amount) => {
         return !total.includes(amount.class) ? [...total, amount.class] : total
-    }, [])
+    }, []);
 
     return (
         <details className="is-size-3 has-text-danger-dark">
@@ -74,12 +71,12 @@ function CreateSubjects({ allStudents, createSubject, createAction }) {
                 <div className="select is-rounded is-size-6">
                     <select onChange={(event) => setNameClass1(event.target.value)}>
                         <option>class</option>
-                        {listClass.map((name, index) => <option key={index}>{name}</option>)}
+                        {listClass1.map((name, index) => <option key={index}>{name}</option>)}
                     </select>
                 </div>
                 <Formik
                     initialValues={{
-                        ...studentsWithStatus,
+                        ...studentsWithStatus1,
                         name: "",
                     }}
                     onSubmit={(values) => {
@@ -91,7 +88,7 @@ function CreateSubjects({ allStudents, createSubject, createAction }) {
                             <Field type="text" name="name" placeholder="name subject" className="input is-rounded is-size-5" />
                             <h5 className="valueText is-size-7" ><ErrorMessage name="name" /></h5>
                             <div className="student-checkbox">
-                                {studentCheckbox}
+                                {studentCheckbox1}
                             </div>
                             <div className="batton">
                                 <button type="submit" className="button is-success is-size-5">Create</button>
@@ -107,12 +104,13 @@ function CreateSubjects({ allStudents, createSubject, createAction }) {
             </div>
         </details>
     );
-}
+};
+
 const mapStateToProps = (state) => {
     return {
         allStudents: state.students
     }
-}
+};
 
 const mapDispatchToProps = (dispatch) => {
     return {
@@ -123,6 +121,6 @@ const mapDispatchToProps = (dispatch) => {
             dispatch(postAction(payload))
         }
     }
-}
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(CreateSubjects);

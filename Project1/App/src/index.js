@@ -15,9 +15,9 @@ import 'bulma/css/bulma.css';
 
 
 
-const rootReducer = combineReducers({ actions, students })
-const store = createStore(rootReducer, applyMiddleware(thunk, createMiddleware()))
-const rootEl = document.getElementById('root')
+const rootReducer = combineReducers({ actions, students });
+const store = createStore(rootReducer, applyMiddleware(thunk, createMiddleware()));
+const rootEl = document.getElementById('root');
 
 const render = () => ReactDOM.render(
   <Provider store={store}>
@@ -31,15 +31,8 @@ const render = () => ReactDOM.render(
       </Switch>
     </Router>
   </Provider>
-
   , rootEl
-)
-render()
-store.subscribe(render)
+);
 
-
-
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-
+render();
+store.subscribe(render);
