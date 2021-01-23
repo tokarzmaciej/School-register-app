@@ -40,7 +40,7 @@ router.delete('/:idSubject', async (req, res) => {
       { '$pull': { 'subjects': idSubject } },
       { 'new': true })
 
-    res.send({ deleteSubject: deleteSubject })
+    res.send({ deletedSubject: deleteSubject })
 
   } catch (error) {
     res.send("error" + error);

@@ -1,28 +1,37 @@
-import { createAction } from 'redux-api-middleware';
-import { ACTIONS_FAILURE, ACTIONS_REQUEST, ACTIONS_SUCCESS } from "../types/actions";
-import axios from 'axios';
+import { RSAA } from 'redux-api-middleware';
+import {
+    ACTIONS_GET_FAILURE, ACTIONS_GET_REQUEST, ACTIONS_GET_SUCCESS,
+    ACTIONS_POST_FAILURE, ACTIONS_POST_REQUEST, ACTIONS_POST_SUCCESS
+} from "../types/actions";
 
-export const getActions = () => (dispatch) => dispatch(createAction({
-    endpoint: 'http://localhost:5000/actions',
-    method: 'GET',
-    headers: {
-        "Accept": "application/json",
-        "Content-Type": "application/json",
-    },
-    types: [
-        ACTIONS_REQUEST,
-        ACTIONS_SUCCESS,
-        ACTIONS_FAILURE]
-}));
 
-export const postAction = (payload) => async dispatch => {
-    try {
-        await axios.post('http://localhost:5000/actions', payload)
+export const getActions = () => ({
+    [RSAA]: {
+        endpoint: 'http://localhost:5000/actions',
+        method: 'GET',
+        headers: {
+            "Accept": "application/json",
+            "Content-Type": "application/json",
+        },
+        types: [
+            ACTIONS_GET_REQUEST,
+            ACTIONS_GET_SUCCESS,
+            ACTIONS_GET_FAILURE]
     }
-    catch (e) {
-        dispatch({
-            type: "ACTIONS_ERROR",
-            payload: console.log(e),
-        })
+});
+
+export const postAction = (payload) => ({
+    [RSAA]: {
+        endpoint: 'http://localhost:5000/actions',
+        method: 'POST',
+        body: JSON.stringify(payload),
+        headers: {
+            "Accept": "application/json",
+            "Content-Type": "application/json",
+        },
+        types: [
+            ACTIONS_POST_REQUEST,
+            ACTIONS_POST_SUCCESS,
+            ACTIONS_POST_FAILURE]
     }
-}
+});

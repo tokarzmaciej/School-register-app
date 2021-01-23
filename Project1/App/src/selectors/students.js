@@ -4,7 +4,7 @@ import { createSelector } from 'reselect';
 
 const getStudentsSelector = state => state.students
 
-export const averageFromStubject = createSelector(
+export const averageFromSubject = createSelector(
     getStudentsSelector,
     students => students
         .map(student =>

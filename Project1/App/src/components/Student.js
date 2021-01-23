@@ -3,10 +3,12 @@ import { connect } from "react-redux";
 import Menu from './Menu';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import { patchStudent } from '../operations/students'
-import { averageFromStubject } from '../selectors/students'
+import { averageFromSubject } from '../selectors/students'
+import { postAction } from '../operations/actions';
 import '../style/student.css'
 
-function Student({ id, allStudents, updateStudent, average }) {
+function Student({ id, allStudents, updateStudent, average, createAction }) {
+
     const student = allStudents.filter(student => student["_id"] === id)[0]
     const studentAverage = average.filter(student => student.id === id)[0]
 
@@ -52,6 +54,9 @@ function Student({ id, allStudents, updateStudent, average }) {
         }
         if (window.confirm('Are you sure you want to edit student?')) {
             updateStudent(editValues, id)
+            createAction({
+                action: `Edit student ${student.name} ${student.surname}`
+            })
         }
     }
     const validate = ({ name, surname, email }) => {
@@ -84,7 +89,9 @@ function Student({ id, allStudents, updateStudent, average }) {
                         <div className="notification has-background-info-light">
                             <div className="title has-text-link-dark">
                                 <details className="details-student-edit">
-                                    <summary className="title is-size-6-mobile is-size-3-tablet">{student && student.name} {student && student.surname}</summary>
+                                    <summary className="title is-size-6-mobile is-size-3-tablet">
+                                        {student && student.name} {student && student.surname}
+                                    </summary>
                                     <Formik
                                         initialValues={{
                                             name: "",
@@ -147,7 +154,7 @@ function Student({ id, allStudents, updateStudent, average }) {
 const mapStateToProps = (state) => {
     return {
         allStudents: state.students,
-        average: averageFromStubject(state)
+        average: averageFromSubject(state)
     }
 }
 
@@ -155,6 +162,9 @@ const mapDispatchToProps = (dispatch) => {
     return {
         updateStudent: (payload, idStudent) => {
             dispatch(patchStudent(payload, idStudent))
+        },
+        createAction: (payload) => {
+            dispatch(postAction(payload))
         }
     }
 }

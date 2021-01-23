@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
 import { connect } from "react-redux";
-import { last20Actions } from '../selectors/actions';
+import { last15Actions } from '../selectors/actions';
 import { getActions } from '../operations/actions';
 
-const Actions = ({ fetchActions, last20Actions }) => {
+const Actions = ({ fetchActions, actions }) => {
 
 
     useEffect(() => fetchActions(), [fetchActions]);
@@ -11,7 +11,7 @@ const Actions = ({ fetchActions, last20Actions }) => {
     return (
         <div className="actions">
             <h2 className="title has-text-black-ter is-2">ACTIONS</h2>
-            {last20Actions.map(action =>
+            {actions.map(action =>
                 <div key={action._id} className="action">
                     <p className="is-large has-text-link-dark">{action.action}</p>
                     <p className="is-small is-size-6">{action.date.slice(0, 10)}</p>
@@ -23,7 +23,7 @@ const Actions = ({ fetchActions, last20Actions }) => {
 }
 const mapStateToProps = (state) => {
     return {
-        last20Actions: last20Actions(state)
+        actions: last15Actions(state)
     }
 }
 

@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import { connect } from "react-redux";
-import { postSubject } from '../operations/subjects';
 import 'bulma/css/bulma.css';
 import { postMark } from '../operations/marks';
+import { postAction } from '../operations/actions';
 
-function CreateMark({ allStudents, createSubject, createMark }) {
+
+function CreateMark({ allStudents, createMark, createAction }) {
 
     const [nameClass2, setNameClass2] = useState("")
     const [nameSubject, setNameSubject] = useState("")
@@ -32,6 +33,9 @@ function CreateMark({ allStudents, createSubject, createMark }) {
                 },
                 idSubjects: idSubjects,
                 idStudents: idStudents
+            })
+            createAction({
+                action: `Create mark ${values.name}: ${values.grade}`
             })
         }
 
@@ -141,11 +145,11 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        createSubject: (payload, idStudent) => {
-            dispatch(postSubject(payload, idStudent))
-        },
         createMark: (payload) => {
             dispatch(postMark(payload))
+        },
+        createAction: (payload) => {
+            dispatch(postAction(payload))
         }
     }
 }

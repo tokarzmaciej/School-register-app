@@ -2,9 +2,11 @@ import React, { useState } from 'react';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import { connect } from "react-redux";
 import { postSubject } from '../operations/subjects';
-import 'bulma/css/bulma.css'
+import 'bulma/css/bulma.css';
+import { postAction } from '../operations/actions';
 
-function CreateSubjects({ allStudents, createSubject }) {
+
+function CreateSubjects({ allStudents, createSubject, createAction }) {
 
     const [nameClass1, setNameClass1] = useState("")
 
@@ -17,6 +19,9 @@ function CreateSubjects({ allStudents, createSubject }) {
             allStudents
                 .filter(student => filterByStatus(values).includes(student.surname))
                 .map(student => createSubject({ name: values.name }, student["_id"]))
+            createAction({
+                action: `Create new subject ${values.name}`
+            })
         }
 
     }
@@ -113,6 +118,9 @@ const mapDispatchToProps = (dispatch) => {
     return {
         createSubject: (payload, idStudent) => {
             dispatch(postSubject(payload, idStudent))
+        },
+        createAction: (payload) => {
+            dispatch(postAction(payload))
         }
     }
 }

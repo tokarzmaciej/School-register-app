@@ -7,10 +7,11 @@ import CreateSubject from './CreateSubject';
 import CreateMark from './CreateMark';
 import { deleteSubject, patchSubject } from '../operations/subjects';
 import { deleteMark, patchMark } from '../operations/marks';
-import { sortByname } from '../selectors/students'
+import { sortByname } from '../selectors/students';
+import { postAction } from '../operations/actions';
 
 
-function Subjects({ allStudents, fetchStudents, delSubject, updateSubject, delMark, updateMark }) {
+function Subjects({ allStudents, fetchStudents, delSubject, updateSubject, delMark, updateMark, createAction }) {
 
     useEffect(() => fetchStudents(), [fetchStudents])
     const [editSubject, setEditSubject] = useState("")
@@ -46,6 +47,9 @@ function Subjects({ allStudents, fetchStudents, delSubject, updateSubject, delMa
                                                 <button className="delete has-background-danger mr-2" onClick={() => {
                                                     if (window.confirm('Are you sure you want to delete subject?')) {
                                                         delSubject(element.idStudent, element["_id"])
+                                                        createAction({
+                                                            action: `Deleted subject ${element.name} in ${student.name} ${student.surname}`
+                                                        })
                                                     }
                                                 }}>
                                                 </button>
@@ -137,6 +141,9 @@ const mapDispatchToProps = (dispatch) => {
         updateMark: (payload, idMark) => {
             dispatch(patchMark(payload, idMark));
         },
+        createAction: (payload) => {
+            dispatch(postAction(payload))
+        }
     }
 }
 

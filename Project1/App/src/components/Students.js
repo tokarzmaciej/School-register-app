@@ -4,10 +4,11 @@ import { Link } from 'react-router-dom';
 import { connect } from "react-redux";
 import Menu from './Menu';
 import { getStudents, postStudent, deleteStudent } from '../operations/students'
-import { sortByname } from '../selectors/students'
+import { sortByname } from '../selectors/students';
+import { postAction } from '../operations/actions';
 import '../style/students.css'
 
-function Students({ allStudents, fetchStudents, createStudent, delStudent }) {
+function Students({ allStudents, fetchStudents, createStudent, delStudent, createAction }) {
 
     useEffect(() => fetchStudents(), [fetchStudents])
 
@@ -33,12 +34,15 @@ function Students({ allStudents, fetchStudents, createStudent, delStudent }) {
         return students.filter(student => student.gender === gender || gender === "")
     }
 
-
     const handleSubmit = (values) => {
         if (window.confirm('Are you sure you want to create new student?')) {
             createStudent(values)
+            createAction({
+                action: `The new student ${values.name} ${values.surname} has been added`
+            })
         }
     }
+
     const validate = ({ name, surname, email }) => {
         const errors = {};
         if (name.length < 3) {
@@ -131,6 +135,9 @@ function Students({ allStudents, fetchStudents, createStudent, delStudent }) {
                                 <button className="delete" onClick={() => {
                                     if (window.confirm('Are you sure you want to delete student?')) {
                                         delStudent(student._id)
+                                        createAction({
+                                            action: `The student ${student.name} ${student.surname} has been deleted`
+                                        })
                                     }
                                 }}>
                                 </button>
@@ -167,7 +174,11 @@ const mapDispatchToProps = (dispatch) => {
         },
         delStudent: (payload) => {
             dispatch(deleteStudent(payload))
+        },
+        createAction: (payload) => {
+            dispatch(postAction(payload))
         }
+
     }
 }
 

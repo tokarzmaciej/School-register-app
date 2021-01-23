@@ -33,10 +33,10 @@ const students = (state = [], action) => {
             ]
         case SUBJECT_DELETE_SUCCESS:
             return [
-                ...state.map(student => student["_id"] === action.payload.deleteSubject.idStudent ?
+                ...state.map(student => student["_id"] === action.payload.deletedSubject.idStudent ?
                     {
                         ...student,
-                        subjects: student.subjects.filter(subject => subject["_id"] !== action.payload.deleteSubject["_id"])
+                        subjects: student.subjects.filter(subject => subject["_id"] !== action.payload.deletedSubject["_id"])
                     } : student),
             ]
         case SUBJECT_PATCH_SUCCESS:
