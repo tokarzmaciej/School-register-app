@@ -1,0 +1,196 @@
+{
+    "allActions": [
+        {
+            "_id": "5ffc9dd384eebb5ca89ccb0a",
+            "action": "The new student Julia Polak has been added",
+            "date": "2021-01-11T18:49:55.015Z",
+            "__v": 0
+        },
+        {
+            "_id": "5ffc9e4c84eebb5ca89ccb0b",
+            "action": "The new student Beata Jankowska has been added",
+            "date": "2021-01-11T18:51:56.367Z",
+            "__v": 0
+        },
+        {
+            "_id": "5ffc9e6384eebb5ca89ccb0c",
+            "action": "The new student Kacper Stoch has been added",
+            "date": "2021-01-11T18:52:19.103Z",
+            "__v": 0
+        },
+        {
+            "_id": "5ffc9e7484eebb5ca89ccb0d",
+            "action": "The new student Alicja Zielonka has been added",
+            "date": "2021-01-11T18:52:36.602Z",
+            "__v": 0
+        },
+        {
+            "_id": "5ffc9e9184eebb5ca89ccb0e",
+            "action": "The new student Piotr Fantazja has been added",
+            "date": "2021-01-11T18:53:05.960Z",
+            "__v": 0
+        },
+        {
+            "_id": "5ffc9ec084eebb5ca89ccb0f",
+            "action": "The new student Bartosz Krakowiak has been added",
+            "date": "2021-01-11T18:53:52.362Z",
+            "__v": 0
+        },
+        {
+            "_id": "5ffc9ece84eebb5ca89ccb10",
+            "action": "The new student Ewelina Swoboda has been added",
+            "date": "2021-01-11T18:54:06.456Z",
+            "__v": 0
+        },
+        {
+            "_id": "5ffc9ee084eebb5ca89ccb11",
+            "action": "The new student Agata Lewandowska has been added",
+            "date": "2021-01-11T18:54:24.048Z",
+            "__v": 0
+        },
+        {
+            "_id": "5ffc9ef584eebb5ca89ccb12",
+            "action": "The new student Tomasz Piasek has been added",
+            "date": "2021-01-11T18:54:45.028Z",
+            "__v": 0
+        },
+        {
+            "_id": "5ffc9f0984eebb5ca89ccb13",
+            "action": "The new student Kuba Ostrowski has been added",
+            "date": "2021-01-11T18:55:05.369Z",
+            "__v": 0
+        },
+        {
+            "_id": "600c93be64bbf5499c7c4bb7",
+            "action": "Create new subject english in class I",
+            "date": "2021-01-23T21:23:10.450Z",
+            "__v": 0
+        },
+        {
+            "_id": "600c93f864bbf5499c7c4bb9",
+            "action": "Create mark activity: 5 in class I",
+            "date": "2021-01-23T21:24:08.862Z",
+            "__v": 0
+        },
+        {
+            "_id": "600c945164bbf5499c7c4bbb",
+            "action": "The new student Bartek Kubacki has been added",
+            "date": "2021-01-23T21:25:37.833Z",
+            "__v": 0
+        },
+        {
+            "_id": "600c946664bbf5499c7c4bbc",
+            "action": "Edit student Bartek Kubacki",
+            "date": "2021-01-23T21:25:58.264Z",
+            "__v": 0
+        },
+        {
+            "_id": "600c948464bbf5499c7c4bbe",
+            "action": "Create mark exam: 4 in class I",
+            "date": "2021-01-23T21:26:28.942Z",
+            "__v": 0
+        },
+        {
+            "_id": "600c949d64bbf5499c7c4bc0",
+            "action": "Create mark exam: 3 in class I",
+            "date": "2021-01-23T21:26:53.479Z",
+            "__v": 0
+        },
+        {
+            "_id": "600c94ad64bbf5499c7c4bc5",
+            "action": "Create new subject math in class II",
+            "date": "2021-01-23T21:27:09.962Z",
+            "__v": 0
+        },
+        {
+            "_id": "600c94c164bbf5499c7c4bca",
+            "action": "Create new subject physics in class II",
+            "date": "2021-01-23T21:27:29.464Z",
+            "__v": 0
+        },
+        {
+            "_id": "600c955a64bbf5499c7c4bcc",
+            "action": "Create mark test: 2 in class II",
+            "date": "2021-01-23T21:30:02.392Z",
+            "__v": 0
+        },
+        {
+            "_id": "600c958364bbf5499c7c4bce",
+            "action": "Create mark test: 4 in class II",
+            "date": "2021-01-23T21:30:43.538Z",
+            "__v": 0
+        },
+        {
+            "_id": "600c958f64bbf5499c7c4bd0",
+            "action": "Create mark test: 5 in class II",
+            "date": "2021-01-23T21:30:55.211Z",
+            "__v": 0
+        },
+        {
+            "_id": "600c968864bbf5499c7c4bd2",
+            "action": "The new student Ewa Nowak has been added",
+            "date": "2021-01-23T21:35:04.208Z",
+            "__v": 0
+        },
+        {
+            "_id": "600c96f264bbf5499c7c4bd7",
+            "action": "Create new subject music in class III",
+            "date": "2021-01-23T21:36:50.313Z",
+            "__v": 0
+        },
+        {
+            "_id": "600c970564bbf5499c7c4bdc",
+            "action": "Create new subject art in class III",
+            "date": "2021-01-23T21:37:09.121Z",
+            "__v": 0
+        },
+        {
+            "_id": "600c975d64bbf5499c7c4bde",
+            "action": "Create mark singing: 4 in class III",
+            "date": "2021-01-23T21:38:37.749Z",
+            "__v": 0
+        },
+        {
+            "_id": "600c989a64bbf5499c7c4bdf",
+            "action": "Edit student Agata Lewandowska",
+            "date": "2021-01-23T21:43:54.252Z",
+            "__v": 0
+        },
+        {
+            "_id": "600c999964bbf5499c7c4be1",
+            "action": "Create mark singing: 3 in class III",
+            "date": "2021-01-23T21:48:09.985Z",
+            "__v": 0
+        },
+        {
+            "_id": "600c99b064bbf5499c7c4be3",
+            "action": "Create mark painting: 5 in class III",
+            "date": "2021-01-23T21:48:32.410Z",
+            "__v": 0
+        },
+        {
+            "_id": "600c9a1564bbf5499c7c4be4",
+            "action": "Deleted subject math in Beata Jankowska",
+            "date": "2021-01-23T21:50:13.515Z",
+            "__v": 0
+        },
+        {
+            "_id": "600c9a6164bbf5499c7c4be6",
+            "action": "Create mark quiz: 5 in class II",
+            "date": "2021-01-23T21:51:29.435Z",
+            "__v": 0
+        },
+        {
+            "_id": "600c9a7c64bbf5499c7c4be8",
+            "action": "Create mark quiz: 4 in class II",
+            "date": "2021-01-23T21:51:56.511Z",
+            "__v": 0
+        },
+        {
+            "_id": "600c9be964bbf5499c7c4be9",
+            "action": "Edit student Alicja Zielonka",
+            "date": "2021-01-23T21:58:01.600Z",
+            "__v": 0
+        }
+    ]
+}

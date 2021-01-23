@@ -1,0 +1,156 @@
+{
+"students": [
+{
+  "_id": "5ff236f97962580d5ce3e24f",
+  "subjects": [
+    "600c93be64bbf5499c7c4bb6"
+  ],
+  "name": "Julia",
+  "surname": "Polak",
+  "email": "julapolak@example.com",
+  "gender": "female",
+  "class": "I",
+  "__v": 0
+},
+{
+  "_id": "5ff237267962580d5ce3e250",
+  "subjects": [
+    "600c94c164bbf5499c7c4bc9"
+  ],
+  "name": "Beata",
+  "surname": "Jankowska",
+  "email": "beatajankowska@example.com",
+  "gender": "female",
+  "class": "II",
+  "__v": 0
+},
+{
+  "_id": "5ff2374d7962580d5ce3e251",
+  "subjects": [
+    "600c96f264bbf5499c7c4bd6",
+    "600c970564bbf5499c7c4bdb"
+  ],
+  "name": "Kacper",
+  "surname": "Stoch",
+  "email": "kacperstoch@example.com",
+  "gender": "male",
+  "class": "III",
+  "__v": 0
+},
+{
+  "_id": "5ff237817962580d5ce3e252",
+  "subjects": [
+    "600c93be64bbf5499c7c4bb5"
+  ],
+  "name": "Alicja",
+  "surname": "Zielonka",
+  "email": "alicja-zielonka@example.com",
+  "gender": "female",
+  "class": "I",
+  "__v": 0
+},
+{
+  "_id": "5ff237cb7962580d5ce3e253",
+  "subjects": [
+    "600c94ad64bbf5499c7c4bc3",
+    "600c94c164bbf5499c7c4bc8"
+  ],
+  "name": "Piotr",
+  "surname": "Fantazja",
+  "email": "piotrfantazja@example.com",
+  "gender": "male",
+  "class": "II",
+  "__v": 0
+},
+{
+  "_id": "5ff237f77962580d5ce3e254",
+  "subjects": [
+    "600c96f264bbf5499c7c4bd5",
+    "600c970564bbf5499c7c4bda"
+  ],
+  "name": "Bartosz",
+  "surname": "Krakowiak",
+  "email": "bartoszkrakowiak@example.com",
+  "gender": "male",
+  "class": "III",
+  "__v": 0
+},
+{
+  "_id": "5ff238227962580d5ce3e255",
+  "subjects": [
+    "600c93be64bbf5499c7c4bb4"
+  ],
+  "name": "Ewelina",
+  "surname": "Swoboda",
+  "email": "ewelinaswoboda@example.com",
+  "gender": "female",
+  "class": "I",
+  "__v": 0
+},
+{
+  "_id": "5ff238427962580d5ce3e256",
+  "subjects": [
+    "600235bc0597b73e08ab48df",
+    "600c93be64bbf5499c7c4bb3"
+  ],
+  "name": "Agata",
+  "surname": "Lewa",
+  "email": "agatalewa@example.com",
+  "gender": "female",
+  "class": "I",
+  "__v": 0
+},
+{
+  "_id": "5ff238867962580d5ce3e257",
+  "subjects": [
+    "60023869e741b414288e45e6",
+    "600c94ad64bbf5499c7c4bc2",
+    "600c94c164bbf5499c7c4bc7"
+  ],
+  "name": "Tomasz",
+  "surname": "Piasek",
+  "email": "tomaszpiasek@example.com",
+  "gender": "male",
+  "class": "II",
+  "__v": 0
+},
+{
+  "_id": "5ff238c67962580d5ce3e258",
+  "subjects": [
+    "600c96f264bbf5499c7c4bd4",
+    "600c970564bbf5499c7c4bd9"
+  ],
+  "name": "Kuba",
+  "surname": "Ostrowski",
+  "email": "kubaostrowski@example.com",
+  "gender": "male",
+  "class": "III",
+  "__v": 0
+},
+{
+  "_id": "600c945164bbf5499c7c4bba",
+  "subjects": [
+    "600c94ad64bbf5499c7c4bc1",
+    "600c94c164bbf5499c7c4bc6"
+  ],
+  "name": "Bartek",
+  "surname": "Kubacki",
+  "email": "bartekubacki@example.com",
+  "gender": "male",
+  "class": "II",
+  "__v": 0
+},
+{
+  "_id": "600c968864bbf5499c7c4bd1",
+  "subjects": [
+    "600c96f264bbf5499c7c4bd3",
+    "600c970564bbf5499c7c4bd8"
+  ],
+  "name": "Ewa",
+  "surname": "Nowak",
+  "email": "emanowak@example.com",
+  "gender": "female",
+  "class": "III",
+  "__v": 0
+}
+]}

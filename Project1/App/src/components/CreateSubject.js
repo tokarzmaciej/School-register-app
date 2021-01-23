@@ -13,7 +13,7 @@ function CreateSubjects({ allStudents, createSubject, createAction }) {
     const filterByStatus = (values) => Object.keys(values)
         .filter(student => values[student] === true);
 
-    const handleSubmit = (values) => {
+    const handleSubmit1 = (values) => {
 
         if (window.confirm('Are you sure you want to create new subject?')) {
             allStudents
@@ -25,7 +25,7 @@ function CreateSubjects({ allStudents, createSubject, createAction }) {
         }
     };
 
-    const validate = (values) => {
+    const validate1 = (values) => {
         const errors = {};
         const checkRepeatSubject = allStudents
             .filter(student => filterByStatus(values).includes(student.surname))
@@ -80,9 +80,9 @@ function CreateSubjects({ allStudents, createSubject, createAction }) {
                         name: "",
                     }}
                     onSubmit={(values) => {
-                        handleSubmit(values)
+                        handleSubmit1(values)
                     }}
-                    validate={validate}>
+                    validate={validate1}>
                     {({ handleSubmit, resetForm, initialValues }) => (
                         <Form onSubmit={handleSubmit}>
                             <Field type="text" name="name" placeholder="name subject" className="input is-rounded is-size-5" />

@@ -1,0 +1,69 @@
+{
+"marks": [
+{
+  "_id": "600c93f864bbf5499c7c4bb8",
+  "name": "activity",
+  "grade": 5,
+  "__v": 0
+},
+{
+  "_id": "600c948464bbf5499c7c4bbd",
+  "name": "exam",
+  "grade": 4,
+  "__v": 0
+},
+{
+  "_id": "600c949d64bbf5499c7c4bbf",
+  "name": "exam",
+  "grade": 3,
+  "__v": 0
+},
+{
+  "_id": "600c955a64bbf5499c7c4bcb",
+  "name": "test",
+  "grade": 2,
+  "__v": 0
+},
+{
+  "_id": "600c958364bbf5499c7c4bcd",
+  "name": "test",
+  "grade": 4,
+  "__v": 0
+},
+{
+  "_id": "600c958f64bbf5499c7c4bcf",
+  "name": "test",
+  "grade": 5,
+  "__v": 0
+},
+{
+  "_id": "600c975d64bbf5499c7c4bdd",
+  "name": "singing",
+  "grade": 4,
+  "__v": 0
+},
+{
+  "_id": "600c999964bbf5499c7c4be0",
+  "name": "singing",
+  "grade": 3,
+  "__v": 0
+},
+{
+  "_id": "600c99b064bbf5499c7c4be2",
+  "name": "painting",
+  "grade": 5,
+  "__v": 0
+},
+{
+  "_id": "600c9a6164bbf5499c7c4be5",
+  "name": "quiz",
+  "grade": 5,
+  "__v": 0
+},
+{
+  "_id": "600c9a7c64bbf5499c7c4be7",
+  "name": "quiz",
+  "grade": 4,
+  "__v": 0
+}
+]}

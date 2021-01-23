@@ -15,7 +15,7 @@ function CreateMark({ allStudents, createMark, createAction }) {
     const filterByStatus = (values) => Object.keys(values)
         .filter(student => values[student] === true);
 
-    const handleSubmit = (values) => {
+    const handleSubmit2 = (values) => {
 
         if (window.confirm('Are you sure you want to create new mark?')) {
             const idSubjects = allStudents
@@ -40,7 +40,7 @@ function CreateMark({ allStudents, createMark, createAction }) {
         };
     };
 
-    const validate = (values) => {
+    const validate2 = (values) => {
         const errors = {};
         const kindOfGrade = ["1", "2", "3", "4", "5", "6"]
         if (!values.name) {
@@ -107,9 +107,9 @@ function CreateMark({ allStudents, createMark, createAction }) {
                         grade: ""
                     }}
                     onSubmit={(values) => {
-                        handleSubmit(values)
+                        handleSubmit2(values)
                     }}
-                    validate={validate}>
+                    validate={validate2}>
                     {({ handleSubmit, resetForm, initialValues }) => (
                         <Form onSubmit={handleSubmit}>
                             <Field type="text" name="name" placeholder="name mark" className="input is-rounded is-size-6" />

@@ -1,0 +1,176 @@
+{
+"subjects": [
+{
+  "_id": "600c93be64bbf5499c7c4bb3",
+  "marks": [
+    "600c93f864bbf5499c7c4bb8",
+    "600c948464bbf5499c7c4bbd"
+  ],
+  "name": "english",
+  "idStudent": "5ff238427962580d5ce3e256",
+  "__v": 0
+},
+{
+  "_id": "600c93be64bbf5499c7c4bb4",
+  "marks": [
+    "600c93f864bbf5499c7c4bb8",
+    "600c949d64bbf5499c7c4bbf"
+  ],
+  "name": "english",
+  "idStudent": "5ff238227962580d5ce3e255",
+  "__v": 0
+},
+{
+  "_id": "600c93be64bbf5499c7c4bb5",
+  "marks": [
+    "600c93f864bbf5499c7c4bb8",
+    "600c948464bbf5499c7c4bbd"
+  ],
+  "name": "english",
+  "idStudent": "5ff237817962580d5ce3e252",
+  "__v": 0
+},
+{
+  "_id": "600c93be64bbf5499c7c4bb6",
+  "marks": [
+    "600c93f864bbf5499c7c4bb8",
+    "600c949d64bbf5499c7c4bbf"
+  ],
+  "name": "english",
+  "idStudent": "5ff236f97962580d5ce3e24f",
+  "__v": 0
+},
+{
+  "_id": "600c94ad64bbf5499c7c4bc1",
+  "marks": [
+    "600c9a7c64bbf5499c7c4be7"
+  ],
+  "name": "math",
+  "idStudent": "600c945164bbf5499c7c4bba",
+  "__v": 0
+},
+{
+  "_id": "600c94ad64bbf5499c7c4bc2",
+  "marks": [],
+  "name": "math",
+  "idStudent": "5ff238867962580d5ce3e257",
+  "__v": 0
+},
+{
+  "_id": "600c94ad64bbf5499c7c4bc3",
+  "marks": [
+    "600c9a6164bbf5499c7c4be5"
+  ],
+  "name": "math",
+  "idStudent": "5ff237cb7962580d5ce3e253",
+  "__v": 0
+},
+{
+  "_id": "600c94c164bbf5499c7c4bc6",
+  "marks": [
+    "600c958364bbf5499c7c4bcd"
+  ],
+  "name": "physics",
+  "idStudent": "600c945164bbf5499c7c4bba",
+  "__v": 0
+},
+{
+  "_id": "600c94c164bbf5499c7c4bc7",
+  "marks": [
+    "600c958f64bbf5499c7c4bcf"
+  ],
+  "name": "physics",
+  "idStudent": "5ff238867962580d5ce3e257",
+  "__v": 0
+},
+{
+  "_id": "600c94c164bbf5499c7c4bc8",
+  "marks": [
+    "600c955a64bbf5499c7c4bcb"
+  ],
+  "name": "physics",
+  "idStudent": "5ff237cb7962580d5ce3e253",
+  "__v": 0
+},
+{
+  "_id": "600c94c164bbf5499c7c4bc9",
+  "marks": [
+    "600c958364bbf5499c7c4bcd"
+  ],
+  "name": "physics",
+  "idStudent": "5ff237267962580d5ce3e250",
+  "__v": 0
+},
+{
+  "_id": "600c96f264bbf5499c7c4bd3",
+  "marks": [
+    "600c975d64bbf5499c7c4bdd"
+  ],
+  "name": "music",
+  "idStudent": "600c968864bbf5499c7c4bd1",
+  "__v": 0
+},
+{
+  "_id": "600c96f264bbf5499c7c4bd4",
+  "marks": [
+    "600c999964bbf5499c7c4be0"
+  ],
+  "name": "music",
+  "idStudent": "5ff238c67962580d5ce3e258",
+  "__v": 0
+},
+{
+  "_id": "600c96f264bbf5499c7c4bd5",
+  "marks": [
+    "600c999964bbf5499c7c4be0"
+  ],
+  "name": "music",
+  "idStudent": "5ff237f77962580d5ce3e254",
+  "__v": 0
+},
+{
+  "_id": "600c96f264bbf5499c7c4bd6",
+  "marks": [
+    "600c999964bbf5499c7c4be0"
+  ],
+  "name": "music",
+  "idStudent": "5ff2374d7962580d5ce3e251",
+  "__v": 0
+},
+{
+  "_id": "600c970564bbf5499c7c4bd8",
+  "marks": [
+    "600c99b064bbf5499c7c4be2"
+  ],
+  "name": "art",
+  "idStudent": "600c968864bbf5499c7c4bd1",
+  "__v": 0
+},
+{
+  "_id": "600c970564bbf5499c7c4bd9",
+  "marks": [
+    "600c99b064bbf5499c7c4be2"
+  ],
+  "name": "art",
+  "idStudent": "5ff238c67962580d5ce3e258",
+  "__v": 0
+},
+{
+  "_id": "600c970564bbf5499c7c4bda",
+  "marks": [
+    "600c99b064bbf5499c7c4be2"
+  ],
+  "name": "art",
+  "idStudent": "5ff237f77962580d5ce3e254",
+  "__v": 0
+},
+{
+  "_id": "600c970564bbf5499c7c4bdb",
+  "marks": [
+    "600c99b064bbf5499c7c4be2"
+  ],
+  "name": "art",
+  "idStudent": "5ff2374d7962580d5ce3e251",
+  "__v": 0
+}
+]}
