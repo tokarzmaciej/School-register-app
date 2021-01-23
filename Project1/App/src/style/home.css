@@ -1,0 +1,136 @@
+#container-home {
+  width: 1280px;
+  min-height: 1000px;
+  margin: auto;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[8];
+      grid-template-columns: repeat(8, 1fr);
+  background-color: #fcfcfc;
+}
+
+#container-home .menu {
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  grid-column: 1/3;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-line-pack: start;
+      align-content: flex-start;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  background-color: lightseagreen;
+  -webkit-box-shadow: 3px 3px 3px 1px;
+          box-shadow: 3px 3px 3px 1px;
+}
+
+#container-home .menu div {
+  text-align: center;
+  margin-top: 20%;
+}
+
+#container-home .actions {
+  -ms-grid-column: 3;
+  -ms-grid-column-span: 6;
+  grid-column: 3/9;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-left: 15%;
+  margin-right: 15%;
+}
+
+#container-home .actions h2 {
+  text-align: center;
+  margin-top: 13%;
+  margin-bottom: 5%;
+}
+
+#container-home .actions .action {
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
+
+#container-home .actions .action p {
+  font-size: 30px;
+}
+
+#container-home .actions .action .is-large {
+  border-bottom: 1px solid gray;
+}
+
+#container-home .actions .action .is-small {
+  text-align: right;
+  padding-top: 3%;
+}
+
+@media all and (max-width: 320px) {
+  #container-home {
+    width: 320px;
+    -ms-grid-columns: ()[1];
+        grid-template-columns: repeat(1);
+    -ms-grid-rows: ()[2];
+        grid-template-rows: repeat(2);
+  }
+  #container-home .menu {
+    -ms-grid-row: 1;
+    -ms-grid-row-span: 1;
+    grid-row: 1/2;
+    -ms-grid-column: 1;
+    grid-column: 1;
+    width: 320px;
+    min-height: 450px;
+  }
+  #container-home .actions {
+    -ms-grid-row: 2;
+    -ms-grid-row-span: 1;
+    grid-row: 2/3;
+    -ms-grid-column: 1;
+    grid-column: 1;
+    width: 240px;
+  }
+  #container-home .actions .action p {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 640px) and (min-width: 320px) {
+  #container-home {
+    width: auto;
+  }
+  #container-home .menu {
+    width: auto;
+  }
+  #container-home .menu div .title {
+    font-size: 130%;
+  }
+  #container-home .actions .action p {
+    font-size: 25px;
+  }
+}
+
+@media (max-width: 1280px) and (min-width: 640px) {
+  #container-home {
+    width: auto;
+  }
+  #container-home .menu {
+    width: auto;
+  }
+  #container-home .menu h1 {
+    font-size: auto;
+  }
+  #container-home .menu div .title {
+    font-size: auto;
+  }
+  #container-home .actions .action p {
+    font-size: auto;
+  }
+}
+/*# sourceMappingURL=home.css.map */

@@ -5,6 +5,7 @@ import { connect } from "react-redux";
 import Menu from './Menu';
 import { getStudents, postStudent, deleteStudent } from '../operations/students'
 import { sortByname } from '../selectors/students'
+import '../style/students.css'
 
 function Students({ allStudents, fetchStudents, createStudent, delStudent }) {
 
@@ -137,8 +138,8 @@ function Students({ allStudents, fetchStudents, createStudent, delStudent }) {
                                     className="title has-text-link-dark">
                                     {student.name + " " + student.surname}
                                 </Link>
-                                <p className="title is-size-6"> class: {student.class}</p>
-                                <p className="title is-size-6"> email: {student.email}</p>
+                                <p className="title  is-size-7-mobile is-size-6-tablet"> class: {student.class}</p>
+                                <p className="title  is-size-7-mobile is-size-6-tablet"> email: {student.email}</p>
                             </div>
                         </div>
                     )

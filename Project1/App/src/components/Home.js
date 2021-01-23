@@ -1,6 +1,7 @@
 import React from 'react';
 import Actions from './Actions';
 import Menu from './Menu';
+import '../style/home.css'
 
 function Home() {
     return (

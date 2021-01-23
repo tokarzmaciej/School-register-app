@@ -7,7 +7,7 @@ import { postMark } from '../operations/marks';
 
 function CreateMark({ allStudents, createSubject, createMark }) {
 
-    const [nameClass, setNameClass] = useState("")
+    const [nameClass2, setNameClass2] = useState("")
     const [nameSubject, setNameSubject] = useState("")
 
 
@@ -54,7 +54,7 @@ function CreateMark({ allStudents, createSubject, createMark }) {
     };
 
     const studentsWithStatus = allStudents
-        .filter(student => student.class === nameClass &&
+        .filter(student => student.class === nameClass2 &&
             student.subjects
                 .map(subject => subject.name)
                 .includes(nameSubject))
@@ -66,7 +66,7 @@ function CreateMark({ allStudents, createSubject, createMark }) {
         .map((student, index) =>
             <div key={index}>
                 <Field type="checkbox" name={student} />
-                <label className="is-size-5 has-text-black-bis" >{student}</label>
+                <label className="is-size-7-mobile is-size-6-tablet has-text-black-bis" >{student}</label>
                 <h5 className="valueText is-size-7" ><ErrorMessage name={student} /></h5>
             </div>
         )
@@ -76,7 +76,7 @@ function CreateMark({ allStudents, createSubject, createMark }) {
     }, [])
 
     const listSubjects = [...new Set(allStudents
-        .filter(student => student.class === nameClass)
+        .filter(student => student.class === nameClass2)
         .map(student => student.subjects.map(subject => subject.name))
         .reduce((total, amount) => {
             return [...amount, ...total]
@@ -85,10 +85,10 @@ function CreateMark({ allStudents, createSubject, createMark }) {
 
     return (
         <details className="is-size-3 has-text-danger-dark">
-            <summary>Create mark</summary>
+            <summary className="is-size-4-mobile is-size-3-tablet">Create mark</summary>
             <div className="create">
                 <div className="select is-rounded is-size-6">
-                    <select onChange={(event) => setNameClass(event.target.value)}>
+                    <select onChange={(event) => setNameClass2(event.target.value)}>
                         <option>class</option>
                         {listClass.map((name, index) => <option key={index}>{name}</option>)}
                     </select>
@@ -119,12 +119,12 @@ function CreateMark({ allStudents, createSubject, createMark }) {
                                 {studentCheckbox}
                             </div>
                             <div className="batton">
-                                <button type="submit" className="button is-success is-size-7">Create</button>
+                                <button type="submit" className="button is-success is-size-5">Create</button>
                                 <button type={"button"} onClick={() => {
                                     if (window.confirm('Are you sure you want to reset?')) {
                                         resetForm(initialValues)
                                     }
-                                }} className="button is-danger is-size-7">Reset</button>
+                                }} className="button is-danger is-size-5">Reset</button>
                             </div>
                         </Form>
                     )}

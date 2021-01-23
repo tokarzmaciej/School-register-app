@@ -1,0 +1,196 @@
+#container-students{
+    width: 1280px;
+    min-height: 1000px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(8, 1fr); 
+    background-color: hsl(0, 0%, 99%);
+    .menu{
+        grid-column: 1/3;
+        display: flex;
+        align-content: flex-start;
+        flex-direction: column;
+        background-color: lightseagreen;
+        box-shadow: 3px 3px 3px 1px;
+        div{
+            text-align: center;
+            margin-top: 20%;
+        }
+    }
+    .students{
+        grid-column: 3/9;
+        .view{
+            display: flex;
+            margin: 8%;
+            flex-direction: column;
+            div{
+                p{
+                    margin-top:  5%;
+                }
+            }
+        }
+        .filter-students{
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            margin: 5% 10% 7% 10%;
+            input{
+                margin-right:1%;
+            }
+            button{
+                margin-left: 1%;
+            }
+        }
+        .create-student{
+            margin: 5% 20% 5% 20%;
+           .batton{
+                display: flex;
+                justify-content: center;
+                margin: 2%;
+                button{
+                    margin-left: 2%;
+                }    
+            }
+            select{
+                margin: 3%;
+            }
+            input{
+                margin: 1%;
+            }
+            .form{
+                display: flex;
+                flex-direction: row;
+                justify-content: center;  
+            }  
+        }   
+    }
+}
+
+@media all and (max-width: 320px){
+        #container-students{
+        max-width: 320px;
+        grid-template-rows: repeat(2); 
+        .menu{
+            grid-column: 1;
+            grid-row: 1/2;
+            width: 320px;
+            min-height: 450px;
+        }
+        .students{
+            grid-column: 1;
+            grid-row: 2/3;
+            .view{
+                margin: 2%;
+                .title{
+                    font-size: 20px;
+                }            
+            }
+            .filter-students{
+                flex-direction: column;
+                margin: 7% 15% 7% 15%;
+                input{
+                   margin-bottom: 2%;
+                }
+                button{
+                    margin-bottom: 2%;
+                    margin-top: 3%;
+                }
+                select{
+                    width: 100%;
+                }
+            }
+            .create-student{
+                .batton{
+                    margin: 2%;
+                    button{
+                        margin-top: 3%;
+                        margin-right: 5%;
+                    }    
+                }
+            }   
+        }
+    }
+}
+
+@media (max-width: 640px) and (min-width: 320px){
+        #container-students{
+        width: auto;
+        .menu{
+            width: auto;
+            div{
+                .title{
+                    font-size: 130%;
+                }
+            }
+        }
+        .students{
+            .view{
+                margin: 2%;
+                .title{
+                    font-size: 25px;
+                }           
+            }
+            .filter-students{
+                flex-direction: column;
+                justify-content: center;
+                margin: 7% 15% 7% 15%;
+                input{
+                   margin-bottom: 2%;
+                }
+                button{
+                    margin-bottom: 2%;
+                    margin-top: 3%;
+                }
+                select{
+                    width: 100%;
+                }
+            }
+            .create-student{
+                .batton{
+                    margin: 2%;
+                    button{
+                        margin-top: 3%;
+                        margin-right: 5%;
+                    }    
+                }
+            }     
+        }
+    }
+}
+
+@media (max-width: 1280px) and (min-width: 640px){
+        #container-students{
+        width: auto;
+        .menu{
+            width: auto;
+        }
+        .students{
+            width: auto;
+            .filter-students{
+                justify-content: left;
+                display: grid;
+                grid-template-rows: repeat(2,1fr);
+                grid-row-gap: 15%;
+                grid-column-gap: 1%;
+                input{
+                    grid-row: 1/2;
+                }
+                button{
+                    grid-row: 2/3;
+                }
+                select{
+                    grid-row: 1/2;
+                }
+            }
+            .create-student{
+                .batton{
+                    margin: 2%;
+                    button{
+                        margin-top: 3%;
+                        margin-right: 5%;
+                    }    
+                }
+            }  
+        }
+    }
+}

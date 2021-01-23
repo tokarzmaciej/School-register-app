@@ -1,0 +1,210 @@
+#container-subjects{
+    width: 1280px;
+    min-height: 1000px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(8, 1fr); 
+    background-color: hsl(0, 0%, 99%);
+    .menu{
+        grid-column: 1/3;
+        display: flex;
+        align-content: flex-start;
+        flex-direction: column;
+        background-color: lightseagreen;
+        box-shadow: 3px 3px 3px 1px;
+        div{
+            text-align: center;
+            margin-top: 20%;
+        }
+    }
+    .subjects{
+        grid-column: 3/9;
+        .filter-students{
+            display: flex;
+            flex-direction: row;
+            justify-content: left;
+            margin: 5% 55% 5% 5%;
+        }
+        .view{
+            display: flex;
+            margin: 8%;
+            flex-direction: column;
+            .details-subject-edit{
+                margin-left:5%;
+            }
+        }
+        .components-subject{
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            details{
+                margin: 5% 15% 5% 15%;
+                .create{
+                    margin: 5% 10% 5% 0%;
+                    .select{
+                        width: 100%;
+                        margin-bottom:10%;
+                        select{
+                            width: 100%;
+                        }
+                    }
+                    form{
+                        input{
+                            margin-bottom: 3%;
+                        }
+                        select{
+                            margin-top: 0%;
+                        }
+                    }
+                    .student-checkbox{
+                        display: grid;
+                        grid-template-columns: repeat(2,1fr);
+                        margin: 5%;
+                        margin-left: 15%;
+                    }
+                    .batton{
+                        display: flex;
+                        justify-content: center;
+                        margin-right: 5%;
+                        button{
+                            margin-left: 5%;
+                        }    
+                    }   
+                }   
+            }
+        }
+    }  
+}
+
+@media all and (max-width: 320px){
+        #container-subjects{
+        width: 320px;
+        grid-template-rows: repeat(2); 
+        .menu{
+            grid-column: 1;
+            grid-row: 1/2;
+            min-height: 450px;
+        }
+        .subjects{
+            grid-column: 1;
+            grid-row: 2/3;
+            .filter-students{
+                margin: 5% 40% 5% 5%;
+            }
+            .view{
+                width: 310px;
+                margin: 0%;
+                .details-subject-edit{
+                    margin-left:5%;
+                }
+            }
+            .components-subject{
+                display: flex;
+                flex-direction: column;
+                details{
+                    margin: 5% 10% 5% 10%;
+                    .create{
+                        form{
+                            input{
+                                margin-top: 0%;
+                            }
+                            select{
+                                margin-top: 0%;
+                            }
+                        }
+                        .student-checkbox{
+                            width: 110%;
+                            margin-left: 15%;
+                        }                    
+                    }   
+                }
+            }
+        }  
+    }
+}
+
+@media (max-width: 640px) and (min-width: 320px){
+    #container-subjects{
+        width: auto;
+        .menu{
+            width: auto;
+            div{
+                .title{
+                    font-size: 130%;
+                }
+            }
+        }
+        .subjects{
+            .filter-students{
+                margin: 5% 40% 5% 5%;
+            }
+            .view{
+                width: auto;
+                margin: 5%;
+                .details-subject-edit{
+                    margin-left:5%;
+                }
+            }
+            .components-subject{
+                display: flex;
+                flex-direction: column;
+                details{
+                    margin: 5% 10% 5% 10%;
+                    .create{
+                        form{
+                            input{
+                                margin-top: 0%;
+                            }
+                            select{
+                                margin-top: 0%;
+                            }
+                        }
+                        .student-checkbox{
+                            width: 110%;
+                            margin-left: 15%;
+                        }                    
+                    }   
+                }
+            }
+        }  
+    }
+}
+
+@media (max-width: 1280px) and (min-width: 640px){
+    #container-subjects{
+        width: auto;
+        .menu{
+            width: auto;
+        }
+        .subjects{
+            .filter-students{
+                margin: 5% 40% 5% 5%;
+            }
+            .view{
+                width: auto;
+                margin: 5%;
+                .details-subject-edit{
+                    margin-left:5%;
+                }
+            }
+            .components-subject{
+                details{
+                    margin: 5% 10% 5% 10%;
+                    .create{
+                        form{
+                            input{
+                                margin-top: 0%;
+                            }
+                            select{
+                                margin-top: 0%;
+                            }
+                        }
+                        .student-checkbox{
+                            width: 110%;
+                            margin-left: 15%;
+                        }                    
+                    }   
+                }
+            }
+        }  
+    }
+}

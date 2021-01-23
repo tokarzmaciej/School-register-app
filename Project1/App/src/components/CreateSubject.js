@@ -6,7 +6,7 @@ import 'bulma/css/bulma.css'
 
 function CreateSubjects({ allStudents, createSubject }) {
 
-    const [nameClass, setNameClass] = useState("")
+    const [nameClass1, setNameClass1] = useState("")
 
     const filterByStatus = (values) => Object.keys(values)
         .filter(student => values[student] === true)
@@ -44,7 +44,7 @@ function CreateSubjects({ allStudents, createSubject }) {
     };
 
     const studentsWithStatus = allStudents
-        .filter(student => student.class === nameClass)
+        .filter(student => student.class === nameClass1)
         .reduce((total, amount) => {
             return { [amount.surname]: false, ...total }
         }, {})
@@ -53,7 +53,7 @@ function CreateSubjects({ allStudents, createSubject }) {
         .map((student, index) =>
             <div key={index}>
                 <Field type="checkbox" name={student} />
-                <label className="is-size-5 has-text-black-bis" >{student}</label>
+                <label className="is-size-7-mobile is-size-6-tablet has-text-black-bis" >{student}</label>
                 <h5 className="valueText is-size-7" ><ErrorMessage name={student} /></h5>
             </div>
         )
@@ -64,10 +64,10 @@ function CreateSubjects({ allStudents, createSubject }) {
 
     return (
         <details className="is-size-3 has-text-danger-dark">
-            <summary>Create subject</summary>
+            <summary className="is-size-4-mobile is-size-3-tablet">Create subject</summary>
             <div className="create">
                 <div className="select is-rounded is-size-6">
-                    <select onChange={(event) => setNameClass(event.target.value)}>
+                    <select onChange={(event) => setNameClass1(event.target.value)}>
                         <option>class</option>
                         {listClass.map((name, index) => <option key={index}>{name}</option>)}
                     </select>
@@ -89,12 +89,12 @@ function CreateSubjects({ allStudents, createSubject }) {
                                 {studentCheckbox}
                             </div>
                             <div className="batton">
-                                <button type="submit" className="button is-success is-size-7">Create</button>
+                                <button type="submit" className="button is-success is-size-5">Create</button>
                                 <button type={"button"} onClick={() => {
                                     if (window.confirm('Are you sure you want to reset?')) {
                                         resetForm(initialValues)
                                     }
-                                }} className="button is-danger is-size-7">Reset</button>
+                                }} className="button is-danger is-size-5">Reset</button>
                             </div>
                         </Form>
                     )}

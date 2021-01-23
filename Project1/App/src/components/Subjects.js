@@ -42,8 +42,8 @@ function Subjects({ allStudents, fetchStudents, delSubject, updateSubject, delMa
                                 <ul>
                                     {student.subjects.map((element, index) =>
                                         <li className="block" key={index}>
-                                            <span className="tag has-background-info-light is-size-4 has-text-black has-text-weight-bold">
-                                                <button className="delete has-background-danger mr-3" onClick={() => {
+                                            <span className="tag has-background-info-light  is-size-6-mobile is-size-4-tablet has-text-black has-text-weight-bold">
+                                                <button className="delete has-background-danger mr-2" onClick={() => {
                                                     if (window.confirm('Are you sure you want to delete subject?')) {
                                                         delSubject(element.idStudent, element["_id"])
                                                     }
@@ -72,8 +72,8 @@ function Subjects({ allStudents, fetchStudents, delSubject, updateSubject, delMa
                                             <ul className="ml-6">
                                                 {element.marks.map((mark, index) =>
                                                     <li className="block" key={index} >
-                                                        <span className="tag has-background-info-light is-size-5 has-text-black">
-                                                            <button className="delete has-background-danger-dark mr-3" onClick={() => {
+                                                        <span className="tag has-background-info-light is-size-6-mobile is-size-4-tablet has-text-black">
+                                                            <button className="delete has-background-danger-dark mr-1" onClick={() => {
                                                                 if (window.confirm('Are you sure you want to delete mark?')) {
                                                                     delMark(element.idStudent, element["_id"], mark["_id"])
                                                                 }

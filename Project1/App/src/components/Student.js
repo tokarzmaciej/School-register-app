@@ -4,7 +4,7 @@ import Menu from './Menu';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import { patchStudent } from '../operations/students'
 import { averageFromStubject } from '../selectors/students'
-import 'bulma/css/bulma.css';
+import '../style/student.css'
 
 function Student({ id, allStudents, updateStudent, average }) {
     const student = allStudents.filter(student => student["_id"] === id)[0]
@@ -56,7 +56,7 @@ function Student({ id, allStudents, updateStudent, average }) {
     }
     const validate = ({ name, surname, email }) => {
         const errors = {};
-        if (name.length < 3) {
+        if (name.length < 3 && name !== "") {
             errors.name = 'Bad length';
         }
         else if (!/^[A-Za-z]+$/.test(name) && name !== "") {
@@ -84,7 +84,7 @@ function Student({ id, allStudents, updateStudent, average }) {
                         <div className="notification has-background-info-light">
                             <div className="title has-text-link-dark">
                                 <details className="details-student-edit">
-                                    <summary>{student && student.name} {student && student.surname}</summary>
+                                    <summary className="title is-size-6-mobile is-size-3-tablet">{student && student.name} {student && student.surname}</summary>
                                     <Formik
                                         initialValues={{
                                             name: "",
@@ -99,15 +99,15 @@ function Student({ id, allStudents, updateStudent, average }) {
                                         validate={validate}>
                                         {({ handleSubmit, resetForm, initialValues }) => (
                                             <Form onSubmit={handleSubmit}>
-                                                <Field type="text" name="name" placeholder="name" className="input is-rounded is-size-7" />
-                                                <h5 ><ErrorMessage name="name" /></h5>
-                                                <Field type="text" name="surname" placeholder="surname" className="input is-rounded is-size-7" />
-                                                <h5 ><ErrorMessage name="surname" /></h5>
-                                                <Field type="email" name="email" placeholder="email" className="input is-rounded is-size-7" />
-                                                <h5 ><ErrorMessage name="email" /></h5>
-                                                <Field type="text" name="class" placeholder="class" className="input is-rounded is-size-7" />
+                                                <Field type="text" name="name" placeholder="name" className="input is-rounded is-size-6" />
+                                                <h5 className="title is-size-7" ><ErrorMessage name="name" /></h5>
+                                                <Field type="text" name="surname" placeholder="surname" className="input is-rounded is-size-6" />
+                                                <h5 className="title is-size-7"><ErrorMessage name="surname" /></h5>
+                                                <Field type="email" name="email" placeholder="email" className="input is-rounded is-size-6" />
+                                                <h5 className="title is-size-7"><ErrorMessage name="email" /></h5>
+                                                <Field type="text" name="class" placeholder="class" className="input is-rounded is-size-6" />
 
-                                                <div className="select is-rounded is-size-7">
+                                                <div className="select is-rounded is-size-6">
                                                     <Field as="select" name="gender">
                                                         <option></option>
                                                         <option>female</option>
@@ -128,13 +128,13 @@ function Student({ id, allStudents, updateStudent, average }) {
                                 </details>
                             </div>
 
-                            <p className="title is-size-5"> Class: {student && student.class}</p>
-                            <p className="title is-size-5"> Email: {student && student.email}</p>
-                            <p className="title is-size-5"> Gender: {student && student.gender}</p>
-                            <p className="title is-size-5 has-text-danger-dark"> Average: {studentAverage && studentAverage.average}</p>
+                            <p className="title is-size-7-mobile is-size-5-tablet"> Class: {student && student.class}</p>
+                            <p className="title is-size-7-mobile is-size-5-tablet"> Email: {student && student.email}</p>
+                            <p className="title is-size-7-mobile is-size-5-tablet"> Gender: {student && student.gender}</p>
+                            <p className="title is-size-7-mobile is-size-5-tablet has-text-danger-dark"> Average: {studentAverage && studentAverage.average}</p>
                             {studentAverage && studentAverage.subjects
                                 .map((subject, index) =>
-                                    <p key={index} className="title is-size-5 has-text-success-dark">{subject.name}: {subject.average}</p>
+                                    <p key={index} className="title is-size-7-mobile is-size-5-tablet has-text-success-dark">{subject.name}: {subject.average}</p>
                                 )}
                         </div>
                     </div>

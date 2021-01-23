@@ -8,10 +8,10 @@ import { Provider } from 'react-redux';
 import Students from './components/Students';
 import Subjects from './components/Subjects';
 import Home from './components/Home';
-import './style/style.css';
 import actions from './reducers/actions';
 import students from './reducers/students';
 import Student from './components/Student';
+import 'bulma/css/bulma.css';
 
 
 
