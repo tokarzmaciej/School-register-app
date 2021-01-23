@@ -35,7 +35,7 @@ function CreateMark({ allStudents, createMark, createAction }) {
                 idStudents: idStudents
             })
             createAction({
-                action: `Create mark ${values.name}: ${values.grade}`
+                action: `Create mark ${values.name}: ${values.grade} in class ${nameClass2}`
             })
         };
     };

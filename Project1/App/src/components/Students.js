@@ -73,6 +73,7 @@ function Students({ allStudents, fetchStudents, createStudent, delStudent, creat
             <div className="students">
                 <div className="filter-students">
                     <input className="input is-rounded is-size-6"
+                        placeholder="find a student"
                         onChange={(event) => setValue(event.target.value)}>
                     </input>
                     <div className="select is-rounded">

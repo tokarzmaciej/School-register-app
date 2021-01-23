@@ -20,7 +20,7 @@ function CreateSubjects({ allStudents, createSubject, createAction }) {
                 .filter(student => filterByStatus(values).includes(student.surname))
                 .map(student => createSubject({ name: values.name }, student["_id"]))
             createAction({
-                action: `Create new subject ${values.name}`
+                action: `Create new subject ${values.name} in class ${nameClass1}`
             })
         }
     };
@@ -29,7 +29,7 @@ function CreateSubjects({ allStudents, createSubject, createAction }) {
         const errors = {};
         const checkRepeatSubject = allStudents
             .filter(student => filterByStatus(values).includes(student.surname))
-            .filter(students => students.subjects.map(subject => subject.name).includes(values.name))
+            .filter(student => student.subjects.map(subject => subject.name).includes(values.name))
 
         if (values.name.length < 3) {
             errors.name = 'Bad length';
