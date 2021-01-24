@@ -47,6 +47,7 @@ router.patch('/:idSubject', async (req, res) => {
     const data = req.body
 
     const updateSubject = await Subject.findByIdAndUpdate(idSubject, data, { new: true })
+      .populate("marks")
 
     res.send({ updateSubject: updateSubject })
 
