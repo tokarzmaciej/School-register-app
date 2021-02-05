@@ -89,14 +89,22 @@ function CreateMark({ allStudents, createMark, createAction }) {
             <summary className="is-size-4-mobile is-size-3-tablet">Create mark</summary>
             <div className="create">
                 <div className="select is-rounded is-size-6">
-                    <select onChange={(event) => setNameClass2(event.target.value)}>
-                        <option>class</option>
+                    <select value={nameClass2}
+                        onChange={(event) => {
+                            setNameClass2(event.target.value)
+                            document.getElementById('RESET').click()
+                        }}
+                    >
+                        <option value="" disabled>Select class</option>
                         {listClass2.map((name, index) => <option key={index}>{name}</option>)}
                     </select>
                 </div>
                 <div className="select is-rounded is-size-6">
-                    <select onChange={(event) => setNameSubject(event.target.value)}>
-                        <option>subject</option>
+                    <select value={nameSubject} onChange={(event) => {
+                        setNameSubject(event.target.value)
+                        document.getElementById('RESET').click()
+                    }}>
+                        <option value="">Select subject</option>
                         {listSubjects.map((name, index) => <option key={index}>{name}</option>)}
                     </select>
                 </div>
@@ -126,6 +134,7 @@ function CreateMark({ allStudents, createMark, createAction }) {
                                         resetForm(initialValues)
                                     }
                                 }} className="button is-danger is-size-5">Reset</button>
+                                <button type="reset" id="RESET" hidden>Reset-checkbox</button>
                             </div>
                         </Form>
                     )}

@@ -69,8 +69,13 @@ function CreateSubjects({ allStudents, createSubject, createAction }) {
             <summary className="is-size-4-mobile is-size-3-tablet">Create subject</summary>
             <div className="create">
                 <div className="select is-rounded is-size-6">
-                    <select onChange={(event) => setNameClass1(event.target.value)}>
-                        <option>class</option>
+                    <select value={nameClass1}
+                        onChange={(event) => {
+                            setNameClass1(event.target.value)
+                            document.getElementById('reset').click()
+                        }}
+                    >
+                        <option value="" disabled>Select class</option>
                         {listClass1.map((name, index) => <option key={index}>{name}</option>)}
                     </select>
                 </div>
@@ -87,7 +92,7 @@ function CreateSubjects({ allStudents, createSubject, createAction }) {
                         <Form onSubmit={handleSubmit}>
                             <Field type="text" name="name" placeholder="name subject" className="input is-rounded is-size-5" />
                             <h5 className="valueText is-size-7" ><ErrorMessage name="name" /></h5>
-                            <div className="student-checkbox">
+                            <div className="student-checkbox" >
                                 {studentCheckbox1}
                             </div>
                             <div className="batton">
@@ -97,6 +102,7 @@ function CreateSubjects({ allStudents, createSubject, createAction }) {
                                         resetForm(initialValues)
                                     }
                                 }} className="button is-danger is-size-5">Reset</button>
+                                <button type="reset" id="reset" hidden>Reset-checkbox</button>
                             </div>
                         </Form>
                     )}
